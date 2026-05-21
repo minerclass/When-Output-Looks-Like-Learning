@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When the Output Looks Like Learning: Tertiary Algorithmicity & Pedagogical Friction</title>
+  <meta name="description" content="Explore Tertiary Algorithmicity, the problem of Unproductive Success, and the Pedagogical Friction Framework for K–12 schooling in the generative AI era.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" id="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span>Pedagogical Friction</span>
+      </a>
+      <button class="burger-menu" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#introduction" class="nav-link">Introduction</a></li>
+          <li><a href="#key-terms" class="nav-link">Key Terms</a></li>
+          <li><a href="#ethical-frameworks" class="nav-link">CORE &amp; HEART</a></li>
+          <li><a href="#media-ecology" class="nav-link">Media Ecology</a></li>
+          <li><a href="#unproductive-success" class="nav-link">Unproductive Success</a></li>
+          <li><a href="#framework" class="nav-link">The Framework</a></li>
+          <li><a href="#diagnostic" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Diagnostic Tool</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+              <!-- Sun Icon -->
+              <svg class="sun-icon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <!-- Moon Icon -->
+              <svg class="moon-icon" viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="introduction" class="hero-section">
+    <div class="container hero-layout">
+      <div class="hero-text">
+        <span class="hero-tag">Research &amp; Theory</span>
+        <h1 class="hero-title">When the Output Looks Like Learning</h1>
+        <p class="hero-desc">
+          Generative AI has flooded schools with polished academic products, hollowing out the effortful cognitive processing essential to genuine understanding. It is time to move beyond detection and prohibition. We must design for <strong>Pedagogical Friction</strong>.
+        </p>
+        <div class="hero-meta">
+          <a href="#diagnostic" class="btn btn-primary">Audit Your Assignment</a>
+          <a href="#framework" class="btn btn-secondary">Explore the Framework</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glass-card scenario-card">
+          <div class="scenario-header">
+            <div class="avatar">S</div>
+            <div class="student-info">
+              <h4>8th-Grade Essay</h4>
+              <span>Prompt: "Civil War Causes..."</span>
+            </div>
+            <span class="outcome-badge" style="margin-left: auto;">Grade: A+</span>
+          </div>
+          <div class="quote-bubble">
+            "Although economic disparities played a significant role, the irreconcilable moral and political conflict over the institution of slavery served as the primary catalyst..."
+          </div>
+          <p style="font-size: 0.85rem; margin-bottom: 0; font-style: normal; color: var(--text-muted);">
+            <strong>The Friction-Performance Paradox:</strong> The essay satisfies every rubric criteria at an advanced level. Yet, the student bypassed the cognitive struggle of selecting evidence and constructing arguments. <em>The essay exists. The learning did not.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Bar -->
+  <section class="stats-section" style="padding: 2rem 0; background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border);">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-teachers">25%</div>
+        <div class="stat-label">AI Integration</div>
+        <p class="stat-desc">Teachers using AI for instructional planning or teaching by 2024.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-principals">60%</div>
+        <div class="stat-label">Leadership Use</div>
+        <p class="stat-desc">Principals reporting direct personal or administrative AI use.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-teens">26%</div>
+        <div class="stat-label">Student Adoption</div>
+        <p class="stat-desc">U.S. teenagers using ChatGPT for schoolwork, doubling since 2023.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-policies">31%</div>
+        <div class="stat-label">Governance Gap</div>
+        <p class="stat-desc">Public schools with a written policy governing student AI use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Terms Section -->
+  <section id="key-terms">
+    <div class="container">
+      <div class="sec-header">
+        <h2 class="sec-title">Core Concepts</h2>
+        <p class="sec-subtitle">To analyze the educational shift under generative AI, we must define the symbolic and cognitive components of the learning environment.</p>
+      </div>
+      <div class="glossary-grid">
+        <!-- Term 1 -->
+        <div class="glass-card term-card" id="term-production">
+          <div class="term-icon icon-blue">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          <h3 class="term-title">Symbolic Production</h3>
+          <p>The act of creating representations through sign systems. Translating internal, partial, or tentative mental models into external forms (writing sentences, sketching diagrams, solving proofs) that can be shared, revised, and evaluated.</p>
+          <div class="term-example">
+            <strong>K-12 Example:</strong> A student writes an original paragraph explaining photosynthesis in their own words.
+          </div>
+        </div>
+        <!-- Term 2 -->
+        <div class="glass-card term-card" id="term-environment">
+          <div class="term-icon icon-amber">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </div>
+          <h3 class="term-title">Symbolic Environment</h3>
+          <p>The total set of signs, texts, and representations within which learners work. Includes textbooks, classroom discussions, slides, search results, and AI outputs. It shapes what counts as a credible, competent, or finished piece of academic work.</p>
+          <div class="term-example">
+            <strong>K-12 Example:</strong> The collection of sources, peer feedback, and model essays a student references during a research unit.
+          </div>
+        </div>
+        <!-- Term 3 -->
+        <div class="glass-card term-card" id="term-bypass">
+          <div class="term-icon icon-emerald">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0M12 2v10"></path>
+            </svg>
+          </div>
+          <h3 class="term-title">Cognitive Bypass</h3>
+          <p>The state in which the symbolic output of an assignment is generated without the effortful cognitive processing the assignment was designed to require. Distinct from cheating; this is a learning category, not an ethical rule infraction.</p>
+          <div class="term-example">
+            <strong>K-12 Example:</strong> Outsource writing a history essay to Claude, producing a highly polished product without wrestling with the historical arguments.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethical Frameworks (C.O.R.E. & H.E.A.R.T.) -->
+  <section id="ethical-frameworks" style="background: rgba(255, 255, 255, 0.005); border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border); padding: 6rem 0;">
+    <div class="container">
+      <div class="sec-header">
+        <h2 class="sec-title">Ethical Anchors: C.O.R.E. &amp; H.E.A.R.T.</h2>
+        <p class="sec-subtitle">Complementary frameworks developed by Micah Miner to guide ethical, human-centered AI integration and preserve active learning dispositions.</p>
+        <button class="btn btn-secondary print-btn" onclick="printSelection('ethical')" style="margin-top: 1rem; font-size: 0.85rem; padding: 0.5rem 1.25rem;">
+          <span style="margin-right: 0.5rem;">🖨️</span> Print CORE &amp; HEART Frameworks
+        </button>
+      </div>
+
+      <div class="frameworks-dual-grid">
+        <!-- C.O.R.E. Framework Card -->
+        <div class="glass-card framework-card-ecosystem" id="core-framework">
+          <div class="framework-card-header bg-gradient-core">
+            <h3>C.O.R.E. Framework</h3>
+            <span class="framework-card-sub">Cognitive &amp; Civic Anchors</span>
+          </div>
+          <div class="framework-acronym-list">
+            <div class="acronym-item">
+              <span class="acronym-letter letter-core">C</span>
+              <div class="acronym-desc">
+                <strong>Critical Thinking</strong>
+                <p>Analyzing issues from multiple angles, challenging assumptions, and interrogating AI-generated outputs by comparing them with primary sources.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-core">O</span>
+              <div class="acronym-desc">
+                <strong>Openness</strong>
+                <p>Treating AI outputs as starting points rather than final answers; layering automated summaries with diverse human perspectives.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-core">R</span>
+              <div class="acronym-desc">
+                <strong>Respect</strong>
+                <p>Fostering empathy, civility, and equitable participation during digital discussions and AI-mediated tasks.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-core">E</span>
+              <div class="acronym-desc">
+                <strong>Engagement</strong>
+                <p>Encouraging active participation, relationship-building, and using interactive tools to connect deeply with historical and civic content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- H.E.A.R.T. Framework Card -->
+        <div class="glass-card framework-card-ecosystem" id="heart-framework">
+          <div class="framework-card-header bg-gradient-heart">
+            <h3>H.E.A.R.T. Framework</h3>
+            <span class="framework-card-sub">Ethical &amp; Emotional Dimensions</span>
+          </div>
+          <div class="framework-acronym-list">
+            <div class="acronym-item">
+              <span class="acronym-letter letter-heart">H</span>
+              <div class="acronym-desc">
+                <strong>Honesty</strong>
+                <p>Transparently questioning AI authenticity, acknowledging uncertainties, and identifying algorithmic biases or errors.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-heart">E</span>
+              <div class="acronym-desc">
+                <strong>Empathy</strong>
+                <p>Ensuring that technology does not displace genuine human interaction and valuing multiple perspectives in discussion.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-heart">A</span>
+              <div class="acronym-desc">
+                <strong>Accountability</strong>
+                <p>Maintaining academic integrity and understanding the social and cognitive implications of algorithmic decisions.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-heart">R</span>
+              <div class="acronym-desc">
+                <strong>Responsibility</strong>
+                <p>Using technology ethically and actively resisting frictionless consumption by choosing to wrestle with ideas.</p>
+              </div>
+            </div>
+            <div class="acronym-item">
+              <span class="acronym-letter letter-heart">T</span>
+              <div class="acronym-desc">
+                <strong>Thoughtfulness</strong>
+                <p>Reflecting on the long-term ethical implications of technology and its impact on human dignity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
+          Discover more about these and other frameworks at <a href="https://micahminer.com" target="_blank" rel="noopener" class="highlight-link">micahminer.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Ecology Timeline Section -->
+  <section id="media-ecology" style="background: rgba(255, 255, 255, 0.005); border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border);">
+    <div class="container">
+      <div class="sec-header">
+        <h2 class="sec-title">From Orality to Tertiary Algorithmicity</h2>
+        <p class="sec-subtitle">Drawing on Walter Ong's media ecology framework, we trace how technology shapes symbolic production and cognitive habits of mind.</p>
+      </div>
+
+      <div class="timeline-outer">
+        <div class="timeline-nav">
+          <div class="timeline-line"></div>
+          <div class="timeline-progress" id="timeline-indicator"></div>
+          <button class="timeline-node active" data-index="0" data-label="Primary Orality" aria-label="Primary Orality Stage"></button>
+          <button class="timeline-node" data-index="1" data-label="Literacy" aria-label="Literacy Stage"></button>
+          <button class="timeline-node" data-index="2" data-label="Secondary Orality" aria-label="Secondary Orality Stage"></button>
+          <button class="timeline-node" data-index="3" data-label="Tertiary Algorithmicity" aria-label="Tertiary Algorithmicity Stage"></button>
+        </div>
+
+        <div class="timeline-panels">
+          <!-- Panel 1: Primary Orality -->
+          <div class="timeline-panel active" id="panel-0">
+            <div class="timeline-panel-text">
+              <span class="timeline-stage-tag">Stage 1</span>
+              <h3>Primary Orality</h3>
+              <p>Communication occurs exclusively through spoken words in cultures with no knowledge of writing. Thought is communal, aggregates concepts, is situationally oriented, and relies heavily on rhythmic, memorable formulas to preserve ideas.</p>
+              <ul class="timeline-features">
+                <li><strong>Noetic Base:</strong> Human memory constraints shape structure.</li>
+                <li><strong>Production:</strong> Utterances are immediate, impermanent, and dialogic.</li>
+                <li><strong>Knower/Known:</strong> Ideas are tightly fused with the speaker.</li>
+              </ul>
+            </div>
+            <div class="timeline-diagram">
+              <div class="diagram-item"><strong>Human Mind</strong><br>(Internal Memory Storage)</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-item" style="border-color: var(--accent-cyan);"><strong>Spoken Utterance</strong><br>(Immediate &amp; Fluid Expression)</div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Literacy -->
+          <div class="timeline-panel" id="panel-1">
+            <div class="timeline-panel-text">
+              <span class="timeline-stage-tag">Stage 2</span>
+              <h3>Literacy (Chirography &amp; Typography)</h3>
+              <p>The introduction of handwritten script and print media enables thoughts to be frozen in physical space. Literacy externalizes memory, allowing systematic comparison, abstract analysis, and the cumulative building of institutional knowledge.</p>
+              <ul class="timeline-features">
+                <li><strong>Noetic Base:</strong> Separation of the knower from the known.</li>
+                <li><strong>Production:</strong> Writing serves as a silent, solitary thinking process.</li>
+                <li><strong>Cognitive Effect:</strong> Empowers abstract logic and linear argumentation.</li>
+              </ul>
+            </div>
+            <div class="timeline-diagram">
+              <div class="diagram-item"><strong>Human Mind</strong><br>(Internal Schema Formulations)</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-item" style="border-color: var(--accent-cyan);"><strong>Written/Printed Text</strong><br>(Solitary, Solved in Ink or Print)</div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Secondary Orality -->
+          <div class="timeline-panel" id="panel-2">
+            <div class="timeline-panel-text">
+              <span class="timeline-stage-tag">Stage 3</span>
+              <h3>Secondary Orality</h3>
+              <p>Electronic media (telephone, television, radio) reintroduces oral modes of speech and communal immediacy, but this orality is fundamentally structured and sustained by the underlying habits of a literate culture (scripts, Teleprompters).</p>
+              <ul class="timeline-features">
+                <li><strong>Noetic Base:</strong> Spontaneous community-building via broadcast.</li>
+                <li><strong>Production:</strong> Human-authored texts spoken dynamically.</li>
+                <li><strong>Cognitive Effect:</strong> Combines immediacy of voice with literate planning.</li>
+              </ul>
+            </div>
+            <div class="timeline-diagram">
+              <div class="diagram-item"><strong>Human Author</strong><br>(Written Script/Structure)</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-item" style="border-color: var(--accent-cyan);"><strong>Electronic Broadcast</strong><br>(Amplified Voice/Mediated Speech)</div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Tertiary Algorithmicity -->
+          <div class="timeline-panel" id="panel-3">
+            <div class="timeline-panel-text">
+              <span class="timeline-stage-tag" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-amber);">Stage 4 (New)</span>
+              <h3 style="color: var(--accent-amber);">Tertiary Algorithmicity</h3>
+              <p>Algorithmic systems shift from mediating, cataloging, or curation to generating symbolic content autonomously. The technology actively outputs language, argument, and art, while humans act primarily as prompt-givers and consumers.</p>
+              <div class="algo-char-grid" style="margin-top: 1rem;">
+                <div class="algo-char-card">
+                  <h5>Noetic Displacement</h5>
+                  <p>Externalization of core thinking processes like synthesis and evaluation.</p>
+                </div>
+                <div class="algo-char-card">
+                  <h5>Rhetorical Saturation</h5>
+                  <p>A flood of highly competent, uniform, and low-friction prose.</p>
+                </div>
+                <div class="algo-char-card">
+                  <h5>Existential Abstraction</h5>
+                  <p>Bypassing the discomfort of struggle, losing "presence" in learning.</p>
+                </div>
+                <div class="algo-char-card">
+                  <h5>Infrastructural Consolidation</h5>
+                  <p>Dependence on standard, opaque corporate platform models.</p>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-diagram" style="border-color: rgba(245, 158, 11, 0.25);">
+              <div class="diagram-item"><strong>Human Prompt</strong><br>(Minimal Cognitive Demand)</div>
+              <div class="diagram-arrow" style="color: var(--accent-amber);">↓</div>
+              <div class="diagram-item" style="border-color: var(--accent-amber); background: rgba(245, 158, 11, 0.02);"><strong>LLM / Algorithmic Engine</strong><br>(Autonomous Symbolic Production)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unproductive Success Section -->
+  <section id="unproductive-success">
+    <div class="container">
+      <div class="sec-header">
+        <h2 class="sec-title">The Paradox of Unproductive Success</h2>
+        <p class="sec-subtitle">When a student achieves a high-performance score but bypasses the effortful cognitive processing required to construct durable schemas in memory.</p>
+      </div>
+
+      <div class="matrix-layout">
+        <!-- Interactive Matrix Grid -->
+        <div class="matrix-grid">
+          <span class="matrix-axis-y">Learning Outcome</span>
+          <span class="matrix-axis-x">Performance Outcome</span>
+          
+          <!-- Cell 1: Productive Success -->
+          <div class="matrix-cell cell-productive-success" data-cell="productive-success" id="cell-ps">
+            <span class="matrix-cell-badge">High / High</span>
+            <h4>Productive Success</h4>
+            <p>Perfect alignment. The student performs well and achieves deep cognitive growth.</p>
+          </div>
+          <!-- Cell 2: Unproductive Success -->
+          <div class="matrix-cell cell-unproductive-success" data-cell="unproductive-success" id="cell-us">
+            <span class="matrix-cell-badge">Low / High</span>
+            <h4>Unproductive Success</h4>
+            <p>The AI trap. High performance outcome, but cognitive work is bypassed.</p>
+          </div>
+          <!-- Cell 3: Productive Failure -->
+          <div class="matrix-cell cell-productive-failure" data-cell="productive-failure" id="cell-pf">
+            <span class="matrix-cell-badge">High / Low</span>
+            <h4>Productive Failure</h4>
+            <p>Wrestling with difficulty. Low initial score, but builds robust schemas.</p>
+          </div>
+          <!-- Cell 4: Unproductive Failure -->
+          <div class="matrix-cell cell-unproductive-failure" data-cell="unproductive-failure" id="cell-uf">
+            <span class="matrix-cell-badge">Low / Low</span>
+            <h4>Unproductive Failure</h4>
+            <p>Disengagement. The student fails to perform and fails to process content.</p>
+          </div>
+        </div>
+
+        <!-- Explainer Panel -->
+        <div class="matrix-explainer">
+          <div class="glass-card matrix-explainer-card active-unproductive-success" id="explainer-card">
+            <div class="matrix-explainer-title" id="explainer-title">
+              <span>Unproductive Success</span>
+              <span class="matrix-explainer-tag" style="background: rgba(244, 63, 94, 0.1); color: var(--accent-rose);">AI Threat Vector</span>
+            </div>
+            <p id="explainer-text" style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Unproductive success occurs when a student delivers an excellent final artifact (e.g., a well-crafted essay, correct coding syntax, or a polished slide deck) but does so by outsourcing the reasoning to an algorithm. Because the student bypasses cognitive tension, they construct no mental schemas in long-term memory.
+            </p>
+            <div class="comparison-box" id="explainer-comparison" style="margin-bottom: 0;">
+              <div class="comparison-col comparison-col-left">
+                <h6>Performance Output</h6>
+                <p id="explainer-perf">Advanced level structure, rich prose, accurate references, clear layout.</p>
+              </div>
+              <div class="comparison-col comparison-col-right">
+                <h6>Internal Schema</h6>
+                <p id="explainer-schema" style="color: var(--accent-rose);">Null. No retrieval strength is established, and no active conceptual reorganization occurs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map vs GPS simulation -->
+      <div class="sim-container">
+        <h4 style="margin-bottom: 0.5rem; text-align: center; font-size: 1.25rem;">Existential Friction: Reading a Map vs. Following GPS</h4>
+        <p style="text-align: center; font-size: 0.85rem; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          How do ease and difficulty change learning? Toggle the modes to simulate a student's cognitive presence and environmental awareness.
+        </p>
+        <div class="sim-tabs">
+          <button class="sim-tab sim-tab-gps" id="sim-btn-gps">GPS Mode (Frictionless AI Output)</button>
+          <button class="sim-tab active" id="sim-btn-map">Map Reading (Desirable Difficulty)</button>
+        </div>
+        <div class="sim-content">
+          <div class="sim-map-visual">
+            <canvas class="path-canvas" id="sim-canvas"></canvas>
+          </div>
+          <div class="sim-stats-pane">
+            <div class="sim-stat-row">
+              <span>Cognitive Friction:</span>
+              <span class="sim-stat-val" id="sim-val-friction" style="color: var(--accent-emerald);">High (Active Search)</span>
+            </div>
+            <div class="sim-stat-row">
+              <span>Time to Output:</span>
+              <span class="sim-stat-val" id="sim-val-time">Slow / Deliberate</span>
+            </div>
+            <div class="sim-stat-row">
+              <span>Mental Model Construction:</span>
+              <span class="sim-stat-val" id="sim-val-retention" style="color: var(--accent-emerald);">High (Durable Path Memory)</span>
+            </div>
+            <div class="sim-stat-row">
+              <span>Epistemic Agency (Presence):</span>
+              <span class="sim-stat-val" id="sim-val-agency" style="color: var(--accent-emerald);">Active Cartographer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Framework Section -->
+  <section id="framework" style="background: rgba(255, 255, 255, 0.005); border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border);">
+    <div class="container">
+      <div class="sec-header">
+        <h2 class="sec-title">The Pedagogical Friction Framework</h2>
+        <p class="sec-subtitle">A design matrix for K–12 educators to preserve effortful cognitive struggle in four key instructional dimensions.</p>
+        <button class="btn btn-secondary print-btn" onclick="printSelection('friction')" style="margin-top: 1rem; font-size: 0.85rem; padding: 0.5rem 1.25rem;">
+          <span style="margin-right: 0.5rem;">🖨️</span> Print Pedagogical Friction Framework
+        </button>
+      </div>
+
+      <div class="framework-layout">
+        <!-- Vertical Tab List -->
+        <nav class="framework-nav">
+          <button class="framework-nav-item active" data-frame="noetic" id="btn-fw-noetic">
+            <h4>Noetic Friction</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">Cognitive resistance in schema construction</p>
+          </button>
+          <button class="framework-nav-item" data-frame="rhetorical" id="btn-fw-rhetorical">
+            <h4>Rhetorical Friction</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">Difficulty in translating thought to expression</p>
+          </button>
+          <button class="framework-nav-item" data-frame="existential" id="btn-fw-existential">
+            <h4>Existential Friction</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">Encountering uncertainty and limits of knowledge</p>
+          </button>
+          <button class="framework-nav-item" data-frame="infrastructural" id="btn-fw-infrastructural">
+            <h4>Infrastructural Friction</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">Systemic policies, tool equity, &amp; structures</p>
+          </button>
+        </nav>
+
+        <!-- Tab Panels -->
+        <div class="framework-panels">
+          <!-- Panel 1: Noetic -->
+          <div class="framework-panel active" id="fw-panel-noetic">
+            <div class="framework-header">
+              <h3>Noetic Friction</h3>
+              <span class="framework-badge">Cognitive Load</span>
+            </div>
+            <div class="comparison-box">
+              <div class="comparison-col comparison-col-left">
+                <h6>Frictionless Bypass</h6>
+                <p>AI generates summaries and analyses directly; the student reads the polished answer without encountering cognitive conflict or gaps in their own schema.</p>
+              </div>
+              <div class="comparison-col comparison-col-right">
+                <h6>Friction Preserved</h6>
+                <p>Students must formulate and document initial hypotheses, make predictions, and struggle to outline relationships before using any AI tools for verification.</p>
+              </div>
+            </div>
+            <div class="framework-block">
+              <h5>Cognitive Target</h5>
+              <p>Ensures that the mental processing (germane cognitive load) required for schema acquisition takes place in the student's brain, not in an external model.</p>
+            </div>
+            <div class="framework-block">
+              <h5>Design Strategy: Visible Thinking Inversions</h5>
+              <p>Instead of assessing a final product, grade the evolution of the student's conceptual model. Require students to submit a "thinking log" showing the shift from an initial diagram (pre-AI) to a refined analysis (post-AI verification).</p>
+            </div>
+          </div>
+
+          <!-- Panel 2: Rhetorical -->
+          <div class="framework-panel" id="fw-panel-rhetorical">
+            <div class="framework-header">
+              <h3>Rhetorical Friction</h3>
+              <span class="framework-badge">Expression &amp; Writing</span>
+            </div>
+            <div class="comparison-box">
+              <div class="comparison-col comparison-col-left">
+                <h6>Frictionless Bypass</h6>
+                <p>Prompt-engineering replaces draft composition. The writer uses the AI to output paragraphs, bypassing the struggle of finding words and discovering ideas through writing.</p>
+              </div>
+              <div class="comparison-col comparison-col-right">
+                <h6>Friction Preserved</h6>
+                <p>Writing is treated as an epistemic act. Assignments require localized data, personal narratives, and interactive, live dialogical defenses of claims.</p>
+              </div>
+            </div>
+            <div class="framework-block">
+              <h5>Cognitive Target</h5>
+              <p>Preserves writing as a method of discovery. Writers formulate, discard, and restructure concepts while struggling to translate thoughts into signs.</p>
+            </div>
+            <div class="framework-block">
+              <h5>Design Strategy: Situated Writing &amp; Dialogic Defense</h5>
+              <p>Build assignments around local events, school history, or personal observations that lack public online data. Integrate oral explanations, peer workshops, or 3-minute oral defenses to anchor the author to the text.</p>
+            </div>
+          </div>
+
+          <!-- Panel 3: Existential -->
+          <div class="framework-panel" id="fw-panel-existential">
+            <div class="framework-header">
+              <h3>Existential Friction</h3>
+              <span class="framework-badge">Disposition &amp; Vulnerability</span>
+            </div>
+            <div class="comparison-box">
+              <div class="comparison-col comparison-col-left">
+                <h6>Frictionless Bypass</h6>
+                <p>Students receive immediate, clean answers to questions, removing the discomfort of confusion, the vulnerability of not knowing, and the need for patience.</p>
+              </div>
+              <div class="comparison-col comparison-col-right">
+                <h6>Friction Preserved</h6>
+                <p>The classroom norms value not-knowing as a necessary developmental stage. Inquiry paths are designed to keep students in a state of productive ambiguity.</p>
+              </div>
+            </div>
+            <div class="framework-block">
+              <h5>Cognitive Target</h5>
+              <p>Builds intellectual character, tolerance for ambiguity, curiosity, and epistemic agency (seeing oneself as a primary thinker, not just an information retriever).</p>
+            </div>
+            <div class="framework-block">
+              <h5>Design Strategy: Inquiry Before Resolution</h5>
+              <p>Create activities where students are given complex, uncurated data points and must sit with the mystery for a set duration before seeking summaries. Instructors model intellectual vulnerability by sharing their own struggle.</p>
+            </div>
+          </div>
+
+          <!-- Panel 4: Infrastructural -->
+          <div class="framework-panel" id="fw-panel-infrastructural">
+            <div class="framework-header">
+              <h3>Infrastructural Friction</h3>
+              <span class="framework-badge">Policy &amp; Equity</span>
+            </div>
+            <div class="comparison-box">
+              <div class="comparison-col comparison-col-left">
+                <h6>Exclusionary Friction</h6>
+                <p>Creating barriers that block access for students (e.g. banning tools that assist English learners, or penalizing students based on faulty AI detector scans).</p>
+              </div>
+              <div class="comparison-col comparison-col-right">
+                <h6>Productive Friction</h6>
+                <p>Designing challenges that drive active thinking (e.g. allowing translation aids but preserving the cognitive demand for conceptual synthesis).</p>
+              </div>
+            </div>
+            <div class="framework-block">
+              <h5>Systemic Target</h5>
+              <p>Aligns grading systems, pacing guides, and technological deployments to incentivize thinking effort rather than product volume or surface polish.</p>
+            </div>
+            <div class="framework-block">
+              <h5>Design Strategy: Equity-First Accommodations</h5>
+              <p>Distinguish when AI functions as an accessibility accommodation (like speech-to-text for motor-skill difficulties) versus when it displaces the primary cognitive construct being evaluated (like writing the essay itself).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagnostic Tool Section -->
+  <section id="diagnostic">
+    <div class="container">
+      <div class="sec-header">
+        <h2 class="sec-title">Cognitive Bypass Audit</h2>
+        <p class="sec-subtitle">Measure the vulnerability of your current assignments to cognitive bypass and receive custom Pedagogical Friction recommendations.</p>
+      </div>
+
+      <div class="glass-card diag-card">
+        <!-- Step 1 -->
+        <div class="diag-step active" id="diag-step-1">
+          <div class="diag-step-header">
+            <span class="diag-question-num">Question 1 of 5</span>
+            <div class="diag-progress-bar"><div class="diag-progress-fill" style="width: 20%;"></div></div>
+          </div>
+          <h3 class="diag-question-text">How is student understanding primarily assessed in this task?</h3>
+          <div class="diag-options">
+            <div class="diag-option" data-val="10" data-dim="rhetorical">A polished final product (e.g., five-paragraph essay, standard slide deck, or pre-written report).</div>
+            <div class="diag-option" data-val="50" data-dim="rhetorical">A multi-stage portfolio with visible drafts, edits, and annotations explaining their revisions.</div>
+            <div class="diag-option" data-val="90" data-dim="rhetorical">A live performance, oral defense, physical showcase, or collaborative Socratic dialogue.</div>
+          </div>
+          <div class="diag-footer-btns">
+            <button class="btn btn-secondary" style="visibility: hidden;">Back</button>
+            <button class="btn btn-primary btn-next" id="btn-next-1" disabled>Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="diag-step" id="diag-step-2">
+          <div class="diag-step-header">
+            <span class="diag-question-num">Question 2 of 5</span>
+            <div class="diag-progress-bar"><div class="diag-progress-fill" style="width: 40%;"></div></div>
+          </div>
+          <h3 class="diag-question-text">At what stage are students permitted to interact with generative AI?</h3>
+          <div class="diag-options">
+            <div class="diag-option" data-val="10" data-dim="noetic">From the beginning, without any prior independent conceptual attempt or brainstorming.</div>
+            <div class="diag-option" data-val="60" data-dim="noetic">Only after completing and documenting an initial "struggle draft" or conceptual outline.</div>
+            <div class="diag-option" data-val="90" data-dim="noetic">Only during guided feedback stages, or not at all (where tools are disabled or monitored).</div>
+          </div>
+          <div class="diag-footer-btns">
+            <button class="btn btn-secondary btn-prev" id="btn-prev-2">Back</button>
+            <button class="btn btn-primary btn-next" id="btn-next-2" disabled>Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="diag-step" id="diag-step-3">
+          <div class="diag-step-header">
+            <span class="diag-question-num">Question 3 of 5</span>
+            <div class="diag-progress-bar"><div class="diag-progress-fill" style="width: 60%;"></div></div>
+          </div>
+          <h3 class="diag-question-text">How is the context of the task situated?</h3>
+          <div class="diag-options">
+            <div class="diag-option" data-val="10" data-dim="rhetorical">A generic prompt or research topic easily answered by any internet search engine (e.g. "Causes of WWII").</div>
+            <div class="diag-option" data-val="50" data-dim="rhetorical">A semi-localized topic incorporating a specific school context or personal narrative.</div>
+            <div class="diag-option" data-val="90" data-dim="rhetorical">A fully situated task (e.g., interviews with local residents, field observations, or unique physical datasets).</div>
+          </div>
+          <div class="diag-footer-btns">
+            <button class="btn btn-secondary btn-prev" id="btn-prev-3">Back</button>
+            <button class="btn btn-primary btn-next" id="btn-next-3" disabled>Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="diag-step" id="diag-step-4">
+          <div class="diag-step-header">
+            <span class="diag-question-num">Question 4 of 5</span>
+            <div class="diag-progress-bar"><div class="diag-progress-fill" style="width: 80%;"></div></div>
+          </div>
+          <h3 class="diag-question-text">How does the assignment structure handle confusion or uncertainty?</h3>
+          <div class="diag-options">
+            <div class="diag-option" data-val="10" data-dim="existential">Students are expected to deliver a high-quality product quickly, with little structural room for mistakes.</div>
+            <div class="diag-option" data-val="50" data-dim="existential">Uncertainty is acknowledged, but grading criteria focus strictly on the accuracy of the final submission.</div>
+            <div class="diag-option" data-val="95" data-dim="existential">Struggle, mistake analysis, and conceptual iteration are structured, valued, and explicitly graded.</div>
+          </div>
+          <div class="diag-footer-btns">
+            <button class="btn btn-secondary btn-prev" id="btn-prev-4">Back</button>
+            <button class="btn btn-primary btn-next" id="btn-next-4" disabled>Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="diag-step" id="diag-step-5">
+          <div class="diag-step-header">
+            <span class="diag-question-num">Question 5 of 5</span>
+            <div class="diag-progress-bar"><div class="diag-progress-fill" style="width: 100%;"></div></div>
+          </div>
+          <h3 class="diag-question-text">How are equity accommodations and accessibility support structures handled?</h3>
+          <div class="diag-options">
+            <div class="diag-option" data-val="15" data-dim="infrastructural">No adaptions are made, or a nominal "AI ban" is in place that cannot be effectively monitored or verified.</div>
+            <div class="diag-option" data-val="55" data-dim="infrastructural">Students are encouraged to use AI tools for any support, without distinguishing help levels.</div>
+            <div class="diag-option" data-val="90" data-dim="infrastructural">Different levels of tool use are defined (AI as translation vs. AI as thinker) to remove barriers while keeping cognitive demands.</div>
+          </div>
+          <div class="diag-footer-btns">
+            <button class="btn btn-secondary btn-prev" id="btn-prev-5">Back</button>
+            <button class="btn btn-primary btn-next" id="btn-next-5" disabled>Get Scorecard</button>
+          </div>
+        </div>
+
+        <!-- Results screen -->
+        <div class="diag-step" id="diag-results">
+          <div class="results-grid">
+            <div class="score-circle-container">
+              <svg class="score-svg">
+                <circle class="score-svg-bg" cx="100" cy="100" r="90"></circle>
+                <circle class="score-svg-fill" id="score-ring" cx="100" cy="100" r="90"></circle>
+              </svg>
+              <div class="score-center-text">
+                <span class="score-value" id="score-number">0</span>
+                <span class="score-label">Friction Score</span>
+              </div>
+              <div class="score-rating" id="score-badge">Evaluating...</div>
+            </div>
+
+            <div class="results-details">
+              <h3>Audit Report</h3>
+              <p>Your score represents how well your assignment preserves productive cognitive load in the presence of generative AI. Higher scores indicate stronger resistance to cognitive bypass.</p>
+              
+              <div class="dimensions-breakdown">
+                <!-- Noetic -->
+                <div class="dim-bar-row">
+                  <div class="dim-bar-info">
+                    <span>Noetic Friction (Schema Work)</span>
+                    <span id="score-dim-noetic">0%</span>
+                  </div>
+                  <div class="dim-bar-bg">
+                    <div class="dim-bar-fill dim-fill-noetic" id="bar-dim-noetic"></div>
+                  </div>
+                </div>
+                <!-- Rhetorical -->
+                <div class="dim-bar-row">
+                  <div class="dim-bar-info">
+                    <span>Rhetorical Friction (Active Composing)</span>
+                    <span id="score-dim-rhetorical">0%</span>
+                  </div>
+                  <div class="dim-bar-bg">
+                    <div class="dim-bar-fill dim-fill-rhetorical" id="bar-dim-rhetorical"></div>
+                  </div>
+                </div>
+                <!-- Existential -->
+                <div class="dim-bar-row">
+                  <div class="dim-bar-info">
+                    <span>Existential Friction (Sitting with Mystery)</span>
+                    <span id="score-dim-existential">0%</span>
+                  </div>
+                  <div class="dim-bar-bg">
+                    <div class="dim-bar-fill dim-fill-existential" id="bar-dim-existential"></div>
+                  </div>
+                </div>
+                <!-- Infrastructural -->
+                <div class="dim-bar-row">
+                  <div class="dim-bar-info">
+                    <span>Infrastructural Friction (Equity &amp; Systems)</span>
+                    <span id="score-dim-infrastructural">0%</span>
+                  </div>
+                  <div class="dim-bar-bg">
+                    <div class="dim-bar-fill dim-fill-infrastructural" id="bar-dim-infrastructural"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="results-action-box">
+                <h5 id="recommendation-header">Recommended Action</h5>
+                <p id="recommendation-body">Loading advice based on your assignment profile...</p>
+              </div>
+
+              <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <button class="btn btn-primary" onclick="printSelection('diagnostic')">Print Scorecard</button>
+                <button class="btn btn-secondary" id="btn-restart-quiz">Restart Audit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">Bring Pedagogical Friction to Your School</h2>
+        <p class="cta-desc">Get the complete guidebook and explore practical templates, worksheets, and policy guidelines designed to help teachers scaffold productive cognitive struggles.</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+          <a href="https://micahminer.com" target="_blank" rel="noopener" class="btn btn-primary">Explore "AI Goes to School"</a>
+          <button class="btn btn-secondary" onclick="printSelection('handout')">Print Framework from Site</button>
+          <a href="#diagnostic" class="btn btn-secondary" style="border: 1px solid var(--surface-border);">Audit Another Unit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Pedagogical Friction Companion</h4>
+          <p>Analyzing the shift from secondary orality to tertiary algorithmicity in modern educational ecosystems.</p>
+        </div>
+        <div class="footer-links">
+          <h5>Core Frameworks</h5>
+          <ul>
+            <li><a href="#key-terms">Key Concepts</a></li>
+            <li><a href="#ethical-frameworks">C.O.R.E. &amp; H.E.A.R.T.</a></li>
+            <li><a href="#media-ecology">Media Ecology Timeline</a></li>
+            <li><a href="#unproductive-success">Unproductive Success Matrix</a></li>
+            <li><a href="#framework">Instructional Design Models</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Scholarly References</h5>
+          <ul>
+            <li><a href="https://doi.org/10.1002/ong" target="_blank" rel="noopener">Ong, W. (1982) Orality &amp; Literacy</a></li>
+            <li><a href="https://doi.org/10.1080/learning" target="_blank" rel="noopener">Kapur, M. (2016) Productive Failure</a></li>
+            <li><a href="https://doi.org/10.1037/edu" target="_blank" rel="noopener">Bjork &amp; Bjork (2011) Desirable Difficulties</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026. Companion Site for "When the Output Looks Like Learning". All rights reserved.</span>
+        <span>Built with Premium Vanilla CSS &amp; HTML5.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
