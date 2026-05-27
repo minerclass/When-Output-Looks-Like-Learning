@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta name="description" content="Digital companion to Micah J. Miner's i.e.: inquiry in education article on generative AI, tertiary algorithmicity, and pedagogical friction.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When the Output Looks Like Learning — A Digital Companion</title>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("assets/05e993cd-dba4-402b-a2a3-8e13250f1cde.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("assets/48f18e23-ed90-4a67-af23-86eec973cd32.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("assets/0fd315ab-8bed-462b-83fa-9ef4a04df162.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("assets/f030aeb4-ae30-49ef-a6cd-5da352ebbec4.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("assets/af6ad642-564e-42f2-ba9c-007c870e5af3.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("assets/0d23c1a3-9628-44b8-81a1-0a0bf066175e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  :root {
+    --bg: #f1ead9;
+    --bg-deep: #e8dfc7;
+    --paper: #f7f1e1;
+    --ink: #1c1815;
+    --ink-soft: #4a4540;
+    --ink-mute: #8a8278;
+    --rule: #d8cfb8;
+    --rule-soft: #e5ddc5;
+    --accent: #b04a2c;
+    --accent-soft: #d68a6d;
+    --cool: #3a4a5e;
+    --cool-soft: #8395a8;
+    --black-ink: #0c0a08;
+    --serif: "Newsreader", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--ink); margin: 0; padding: 0; }
+  body {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  /* Paper grain */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(28,24,21,.018) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(176,74,44,.022) 0, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  main { position: relative; z-index: 1; }
+
+  /* Top chrome */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, rgba(241,234,217,.96), rgba(241,234,217,.85) 70%, rgba(241,234,217,0));
+    backdrop-filter: blur(4px);
+    z-index: 50;
+    color: var(--ink-soft);
+  }
+  .topbar .lhs { display: flex; gap: 24px; align-items: center; }
+  .topbar .mark {
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+  }
+  .topbar .nav { display: flex; gap: 22px; align-items: center; }
+  .topbar a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+  .topbar a:hover { color: var(--accent); }
+  .topbar .progress {
+    position: absolute; left: 0; bottom: 0;
+    height: 2px; background: var(--accent);
+    width: 0;
+    transition: width .15s linear;
+  }
+
+  /* Sectioning */
+  section { position: relative; padding: 120px 28px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .col { max-width: 720px; margin: 0 auto; }
+  .col-wide { max-width: 920px; margin: 0 auto; }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--accent);
+    display: inline-block;
+  }
+  .eyebrow .num { color: var(--ink-mute); }
+
+  /* Typography */
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(48px, 7vw, 104px); line-height: 0.96; }
+  h2 { font-size: clamp(36px, 4.4vw, 64px); line-height: 1.02; margin-bottom: 32px; }
+  h3 { font-size: clamp(24px, 2.6vw, 36px); line-height: 1.15; margin-bottom: 16px; }
+  .italic { font-style: italic; }
+  p { margin: 0 0 1em; max-width: 65ch; }
+  p.lead { font-size: 26px; line-height: 1.4; color: var(--ink-soft); font-style: italic; max-width: 30ch; }
+  p.standfirst { font-size: 24px; line-height: 1.45; color: var(--ink-soft); }
+  .small { font-size: 16px; color: var(--ink-soft); }
+  .mono { font-family: var(--mono); }
+  .rule { height: 1px; background: var(--rule); border: 0; margin: 60px auto; max-width: 720px; }
+  .pullquote {
+    font-style: italic;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.25;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 32px;
+    margin: 80px 0;
+    max-width: 28ch;
+  }
+  .pullquote .src {
+    display: block;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 18px;
+  }
+  .footnote {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+
+  /* Hero */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 140px 28px 80px;
+  }
+  #hero .wrap { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 1280px; }
+  #hero .meta {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; gap: 28px; margin-bottom: 80px;
+  }
+  #hero .meta span { color: var(--ink-soft); }
+  #hero h1 .a { display: block; }
+  #hero h1 .b { display: block; font-style: italic; color: var(--accent); }
+  #hero h1 .c { display: block; }
+  #hero .deck {
+    margin-top: 56px;
+    max-width: 580px;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  #hero .deck em { color: var(--ink); font-style: italic; }
+  #hero .byline {
+    margin-top: 80px;
+    display: flex; gap: 40px; flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  #hero .byline strong { color: var(--ink); font-weight: 500; display: block; margin-top: 4px; }
+  #hero .scroll {
+    margin-top: 88px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; align-items: center; gap: 14px;
+  }
+  #hero .scroll::after {
+    content: ""; width: 60px; height: 1px; background: var(--ink-mute);
+  }
+
+  /* Scenario — annotated essay */
+  .essay-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 64px 72px;
+    position: relative;
+    box-shadow: 0 30px 80px -50px rgba(28,24,21,.25);
+  }
+  .essay-card .corner {
+    position: absolute; top: 16px; right: 24px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .essay-card h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  .essay-card .sub {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 36px;
+  }
+  .essay-card .prose { font-size: 18px; line-height: 1.7; color: var(--ink); }
+  .essay-card .prose p { margin: 0 0 16px; }
+  .ann {
+    background: linear-gradient(180deg, transparent 60%, rgba(176,74,44,.22) 60%);
+    cursor: help;
+    position: relative;
+    transition: background .2s;
+  }
+  .ann.active { background: rgba(176,74,44,.28); }
+  .annotations {
+    margin-top: 28px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .ann-card {
+    border: 1px solid var(--rule);
+    padding: 18px 22px;
+    background: rgba(247,241,225,.5);
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .ann-card:hover, .ann-card.active {
+    background: var(--paper);
+    border-color: var(--accent);
+  }
+  .ann-card .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .ann-card .body { font-size: 16px; line-height: 1.4; color: var(--ink-soft); }
+  .verdict {
+    margin-top: 56px;
+    text-align: center;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .verdict .accent { color: var(--accent); }
+
+  /* Three terms */
+  .terms { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
+  .term {
+    padding: 44px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .term:last-child { border-bottom: 1px solid var(--rule); }
+  .term .label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding-top: 10px;
+  }
+  .term .label .num { display: block; color: var(--accent); margin-bottom: 8px; font-size: 11px; }
+  .term .term-name {
+    font-size: 36px;
+    font-style: italic;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .term .term-def { font-size: 19px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+  .term .term-ex {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-mute);
+    font-style: italic;
+    border-left: 1px solid var(--rule);
+    padding-left: 16px;
+  }
+
+  /* Timeline (Ong's stages) */
+  #timeline { background: var(--bg-deep); }
+  .stages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .stage {
+    padding: 36px 28px 48px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    cursor: pointer;
+    transition: background .25s;
+  }
+  .stage:last-child { border-right: 0; }
+  .stage:hover, .stage.active { background: var(--paper); }
+  .stage.tertiary { background: rgba(176,74,44,.06); }
+  .stage.tertiary:hover, .stage.tertiary.active { background: rgba(176,74,44,.12); }
+  .stage .roman {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    margin-bottom: 24px;
+  }
+  .stage h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 8px;
+    font-style: italic;
+  }
+  .stage.tertiary h4 { color: var(--accent); }
+  .stage .era {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .stage .producer {
+    font-size: 15px; line-height: 1.5; color: var(--ink-soft);
+  }
+  .stage .producer strong { color: var(--ink); font-weight: 500; }
+  .stage .marker {
+    position: absolute; top: -7px; left: 28px;
+    width: 13px; height: 13px;
+    background: var(--bg-deep);
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+  }
+  .stage.tertiary .marker { background: var(--accent); border-color: var(--accent); }
+  .timeline-detail {
+    margin-top: 48px;
+    padding: 36px 40px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    min-height: 200px;
+    transition: opacity .2s;
+  }
+  .timeline-detail .heading {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .timeline-detail h5 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0 0 18px;
+    font-style: italic;
+  }
+  .timeline-detail .body { font-size: 18px; line-height: 1.6; color: var(--ink-soft); margin: 0; max-width: 70ch; }
+
+  /* Four characteristics */
+  .characteristics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 56px;
+  }
+  .char {
+    background: var(--bg);
+    padding: 56px 48px;
+    position: relative;
+    transition: background .25s;
+  }
+  .char:hover { background: var(--paper); }
+  .char .glyph {
+    font-family: var(--serif);
+    font-size: 84px;
+    line-height: 1;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .char h4 {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0 0 14px;
+  }
+  .char .summary { font-size: 17px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 24px; }
+  .char .example {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-mute);
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+    margin: 0;
+  }
+  .char .num {
+    position: absolute; top: 24px; right: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+  }
+
+  /* Kapur 2x2 matrix */
+  #kapur { background: var(--bg-deep); }
+  .matrix-wrap {
+    display: grid;
+    grid-template-columns: 60px 1fr 60px 1fr;
+    grid-template-rows: 60px 1fr 1fr 60px;
+    gap: 0;
+    margin-top: 64px;
+    max-width: 900px;
+    margin-left: auto; margin-right: auto;
+  }
+  .matrix-axis {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .matrix-axis.left { writing-mode: vertical-rl; transform: rotate(180deg); grid-row: 2 / 4; grid-column: 1; }
+  .matrix-axis.top-l { grid-row: 1; grid-column: 2; }
+  .matrix-axis.top-r { grid-row: 1; grid-column: 4; }
+  .matrix-axis.bot-l { grid-row: 4; grid-column: 2; }
+  .matrix-axis.bot-r { grid-row: 4; grid-column: 4; }
+  .matrix-axis.title-x { grid-row: 1; grid-column: 2 / 5; justify-content: flex-start; padding-left: 0; color: var(--accent); font-weight: 500; }
+  .matrix-spacer { grid-row: 2 / 4; grid-column: 3; width: 1px; background: var(--ink); }
+  .matrix-row-rule { grid-row: 3; grid-column: 2 / 5; height: 1px; background: var(--ink); align-self: start; }
+  .cell {
+    padding: 32px 36px;
+    cursor: pointer;
+    transition: background .25s;
+    background: var(--paper);
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 200px;
+    position: relative;
+  }
+  .cell:hover { background: var(--bg); }
+  .cell .ctitle {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .cell .cmono {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 18px;
+  }
+  .cell .cbody { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+  .cell.danger {
+    background: rgba(176,74,44,.08);
+  }
+  .cell.danger:hover { background: rgba(176,74,44,.16); }
+  .cell.danger .ctitle { color: var(--accent); }
+  .cell.danger .cmono { color: var(--accent); }
+  .cell .stamp {
+    position: absolute; top: 18px; right: 22px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+  }
+
+  /* GPS vs map */
+  .duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 56px;
+    border: 1px solid var(--rule);
+  }
+  .duo > div { padding: 56px 48px; position: relative; }
+  .duo .left { border-right: 1px solid var(--rule); background: var(--paper); }
+  .duo .right { background: var(--bg); }
+  .duo .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+  }
+  .duo .heading {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .duo .right .heading { color: var(--accent); }
+  .duo p { font-size: 17px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 14px; max-width: 36ch; }
+  .duo .stage-vis {
+    height: 240px;
+    margin: 28px 0;
+    background:
+      linear-gradient(135deg, transparent 49.5%, var(--rule) 49.5%, var(--rule) 50.5%, transparent 50.5%),
+      linear-gradient(45deg, transparent 49.5%, var(--rule) 49.5%, var(--rule) 50.5%, transparent 50.5%);
+    background-size: 28px 28px;
+    border: 1px dashed var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .duo .stage-vis.gps {
+    background:
+      linear-gradient(to right, transparent, transparent 24%, var(--accent) 24%, var(--accent) 25%, transparent 25%, transparent 74%, var(--accent) 74%, var(--accent) 75%, transparent 75%),
+      var(--paper);
+    border: 1px dashed var(--rule);
+  }
+  .duo .stage-vis.gps::before {
+    content: "A";
+    position: absolute; left: 18%; top: 50%; transform: translateY(-50%);
+    font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+  }
+  .duo .stage-vis.gps::after {
+    content: "→ destination";
+    position: absolute; right: 18%; top: 50%; transform: translate(50%, -50%);
+    font-family: var(--mono); font-size: 11px; color: var(--accent);
+  }
+  .duo .stage-vis.gps .line {
+    position: absolute; left: 25%; right: 25%; top: 50%; height: 1px;
+    background: repeating-linear-gradient(to right, var(--accent) 0 6px, transparent 6px 10px);
+  }
+  .duo .stage-vis.map {
+    background:
+      radial-gradient(ellipse 40% 18% at 30% 35%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
+      radial-gradient(ellipse 50% 22% at 35% 45%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
+      radial-gradient(ellipse 60% 26% at 40% 55%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
+      radial-gradient(ellipse 70% 30% at 45% 65%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
+      var(--bg);
+    border: 1px dashed var(--rule);
+  }
+  .duo .stage-vis.map::before {
+    content: "A";
+    position: absolute; left: 12%; top: 70%; font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+  }
+  .duo .stage-vis.map::after {
+    content: "B";
+    position: absolute; right: 14%; top: 22%; font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+  }
+
+  /* Pedagogical Friction Framework */
+  #framework { background: #1c1815; color: #e8dfc7; }
+  #framework .eyebrow { color: var(--accent-soft); }
+  #framework .eyebrow::before { background: var(--accent-soft); }
+  #framework h2 { color: #f1ead9; }
+  #framework p.standfirst { color: #c6bea8; }
+  .friction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #2a241e;
+    border: 1px solid #2a241e;
+    margin-top: 64px;
+  }
+  .fdim {
+    background: #221d18;
+    padding: 56px 48px;
+    cursor: pointer;
+    transition: background .3s;
+    position: relative;
+  }
+  .fdim:hover, .fdim.active { background: #2a241e; }
+  .fdim .ord {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-soft);
+    margin-bottom: 24px;
+  }
+  .fdim h4 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 8px;
+    color: #f1ead9;
+  }
+  .fdim .ko {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a8278;
+    margin-bottom: 24px;
+  }
+  .fdim .desc { font-size: 17px; line-height: 1.55; color: #c6bea8; margin: 0 0 24px; max-width: 42ch; }
+  .fdim .threat {
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #8a8278;
+    padding-top: 20px;
+    border-top: 1px solid #2a241e;
+  }
+  .fdim .threat strong { color: var(--accent-soft); font-style: normal; font-weight: 500; }
+  .fdim .design {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #c6bea8;
+  }
+  .fdim .design .h {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 10px;
+  }
+
+  /* Equity slider */
+  #equity .equity-card {
+    margin-top: 56px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 48px 52px;
+  }
+  .equity-card h4 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 28px;
+  }
+  .equity-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    margin-bottom: 28px;
+  }
+  .equity-pair .row {
+    border: 1px solid var(--rule);
+    padding: 24px 28px;
+  }
+  .equity-pair .row.good { border-color: var(--cool); }
+  .equity-pair .row.bad { border-color: var(--accent); }
+  .equity-pair .row .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .equity-pair .row.good .tag { color: var(--cool); }
+  .equity-pair .row.bad .tag { color: var(--accent); }
+  .equity-pair .row h5 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+  .equity-pair .row p { font-size: 16px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+
+  /* Live demo — typing */
+  #demo { background: var(--bg-deep); }
+  .stream-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    margin-top: 56px;
+  }
+  .stream {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 32px 36px;
+    min-height: 360px;
+    position: relative;
+    font-family: var(--serif);
+  }
+  .stream .head {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 6px;
+    display: flex; justify-content: space-between;
+  }
+  .stream .head .who { color: var(--accent); }
+  .stream.b .head .who { color: var(--cool); }
+  .stream .title {
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 14px;
+  }
+  .stream .text { font-size: 17px; line-height: 1.6; color: var(--ink); min-height: 200px; }
+  .stream .text .cross { text-decoration: line-through; color: var(--ink-mute); margin-right: 6px; }
+  .stream .text .ins { color: var(--ink); }
+  .stream .text .pause { display: inline-block; }
+  .stream .meta {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    display: flex; justify-content: space-between;
+  }
+  .cursor {
+    display: inline-block; width: 7px; height: 18px;
+    background: var(--ink);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1s steps(2) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .demo-controls {
+    margin-top: 24px;
+    display: flex; gap: 14px; justify-content: center;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+
+  /* Closing */
+  #closing { background: var(--bg); padding-bottom: 200px; }
+  .citation {
+    margin-top: 80px;
+    border: 1px solid var(--rule);
+    padding: 40px 44px;
+    background: var(--paper);
+    max-width: 720px;
+    margin-left: auto; margin-right: auto;
+  }
+  .citation .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .citation .cite {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .citation .cite strong { color: var(--ink); font-style: normal; font-weight: 500; }
+
+  /* Content renders by default. No timeline-driven reveal — preview environments
+     can pin animations/transitions at their "from" state, and a long-form article
+     must not depend on motion for visibility. */
+  .fade { opacity: 1; transform: none; }
+
+  /* Section header inside dark */
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { margin-bottom: 24px; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    body { font-size: 18px; }
+    section { padding: 80px 22px; }
+    .essay-card { padding: 36px 28px; }
+    .annotations { grid-template-columns: 1fr; }
+    .term { grid-template-columns: 1fr; gap: 14px; }
+    .stages { grid-template-columns: 1fr; }
+    .stage { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .characteristics { grid-template-columns: 1fr; }
+    .matrix-wrap { grid-template-columns: 40px 1fr; grid-template-rows: auto; }
+    .matrix-axis.top-l, .matrix-axis.top-r, .matrix-axis.bot-l, .matrix-axis.bot-r, .matrix-axis.title-x, .matrix-spacer, .matrix-row-rule { display: none; }
+    .cell { grid-column: 2 !important; }
+    .duo { grid-template-columns: 1fr; }
+    .duo .left { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .friction-grid { grid-template-columns: 1fr; }
+    .equity-pair { grid-template-columns: 1fr; }
+    .stream-wrap { grid-template-columns: 1fr; }
+    .topbar .nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+
+
+<div class="topbar">
+  <div class="lhs">
+    <span class="mark">i.e.</span>
+    <span>Inquiry in Education · Vol. 18 · Iss. 1 · Art. 4</span>
+  </div>
+  <div class="nav">
+    <a href="#scenario">The Scenario</a>
+    <a href="#terms">Terms</a>
+    <a href="#timeline">Stages</a>
+    <a href="#kapur">The Trap</a>
+    <a href="#framework">Framework</a>
+  </div>
+  <div class="progress" id="prog"></div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="meta fade">
+      <span>A digital companion to</span>
+      <span>Miner, M. J. (2025)</span>
+      <span>National Louis University</span>
+    </div>
+
+    <h1 class="fade">
+      <span class="a">When the</span>
+      <span class="b">Output</span>
+      <span class="c">Looks Like Learning.</span>
+    </h1>
+
+    <p class="deck fade">
+      The essay is polished. The thesis is clear. The transitions are smooth.
+      <em>What if learning never happened at all?</em>
+    </p>
+
+    <div class="byline fade">
+      <div>Author<strong>Micah J. Miner</strong></div>
+      <div>Subject<strong>Tertiary Algorithmicity</strong></div>
+      <div>Frame<strong>Pedagogical Friction</strong></div>
+      <div>Reading time<strong>≈ 18 minutes</strong></div>
+    </div>
+
+    <div class="scroll fade">Scroll to begin</div>
+  </div>
+</section>
+
+<!-- ============ SCENARIO ============ -->
+<section id="scenario">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 01</span> The scenario</div>
+    <h2 class="fade italic">An essay arrives.<br>It performs at proficient or advanced.</h2>
+    <p class="standfirst fade">An eighth-grader submits a five-paragraph essay on the causes of the American Civil War. By every rubric metric the teacher designed, the essay performs at proficient or advanced. <em>The teacher suspects most of the text was generated.</em></p>
+    <p class="standfirst fade" style="margin-top:20px;">Hover the highlighted passages — or tap a card below — to see what the rubric measures, and what it misses.</p>
+
+    <div class="essay-card fade" style="margin-top:64px;">
+      <span class="corner">Student work · Submission #4128</span>
+      <h4>The Causes of the American Civil War</h4>
+      <div class="sub">Grade 8 · U.S. History · Mr. Castellanos</div>
+      <div class="prose">
+        <p>The American Civil War, fought from 1861 to 1865, was the result of <span class="ann" data-ann="1">deep economic, political, and moral tensions</span> that had been building between the North and the South for decades. While slavery is often cited as the central cause, the conflict was driven by a convergence of forces that made compromise increasingly impossible.</p>
+        <p><span class="ann" data-ann="2">First, the divergent economies of the two regions created irreconcilable interests.</span> The industrialized North relied on wage labor and tariffs to protect its growing manufacturing sector, while the agrarian South depended on enslaved labor to sustain cotton exports. These economic structures shaped political coalitions that increasingly viewed one another as existential threats.</p>
+        <p><span class="ann" data-ann="3">Second, the question of slavery's expansion into new western territories transformed a regional dispute into a national crisis.</span> The Kansas-Nebraska Act, the Dred Scott decision, and the raid on Harpers Ferry each accelerated polarization, eroding the political compromises that had previously held the union together.</p>
+        <p>Ultimately, <span class="ann" data-ann="4">the election of Abraham Lincoln in 1860 served as the immediate catalyst for secession</span>, but the deeper causes had been gathering for generations. The war was not an accident of politics but the inevitable result of a republic that could no longer reconcile freedom with the institution of slavery.</p>
+      </div>
+    </div>
+
+    <div class="annotations fade" style="margin-top:28px;">
+      <div class="ann-card" data-ann="1">
+        <div class="tag">Rubric: thesis clarity ✓</div>
+        <div class="body">The opening names three causal categories. It scores well. But it could have come from any source — including one that has never thought about the war.</div>
+      </div>
+      <div class="ann-card" data-ann="2">
+        <div class="tag">Rubric: topic sentence ✓</div>
+        <div class="body">Structurally textbook-perfect. No struggle to <em>find</em> the framing — which means no productive cognitive work has been externalized into language.</div>
+      </div>
+      <div class="ann-card" data-ann="3">
+        <div class="tag">Rubric: evidence ✓</div>
+        <div class="body">Three correct historical references in a single sentence. Yet there's no encounter with which event mattered most, or why.</div>
+      </div>
+      <div class="ann-card" data-ann="4">
+        <div class="tag">Rubric: conclusion ✓</div>
+        <div class="body">Returns to the thesis with a gesture toward inevitability. Reads as wisdom. But "inevitable" can paper over any uncertainty the writer never had to face.</div>
+      </div>
+    </div>
+
+    <p class="verdict fade" style="margin-top:64px;">
+      The essay exists.<br><span class="accent">The learning has not occurred.</span>
+    </p>
+    <p class="small fade" style="text-align:center;margin-top:18px;color:var(--ink-mute);">
+      Miner names this <span class="mono" style="color:var(--accent);">cognitive bypass</span>: the symbolic output of an assignment is produced<br>without the cognitive work the assignment was designed to require.
+    </p>
+  </div>
+</section>
+
+<!-- ============ THREE TERMS ============ -->
+<section id="terms">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 02</span> Three terms doing the work</div>
+    <h2 class="fade italic">Before the argument can be made, the vocabulary has to be precise.</h2>
+    <p class="standfirst fade">Miner asks the reader to hold three terms in technical senses that differ from everyday usage. Each does substantive work in what follows.</p>
+
+    <div class="terms fade">
+      <div class="term">
+        <div class="label"><span class="num">term i</span>Defined</div>
+        <div>
+          <div class="term-name">Symbolic production</div>
+          <p class="term-def">The act of creating representations through systems of signs. A human being is doing the cognitive work of translating <em>understanding</em> into <em>signs</em>.</p>
+          <p class="term-ex">— writing a paragraph, sketching a diagram, composing an email, recording a spoken explanation</p>
+        </div>
+      </div>
+      <div class="term">
+        <div class="label"><span class="num">term ii</span>Defined</div>
+        <div>
+          <div class="term-name">Symbolic environment</div>
+          <p class="term-def">The total set of signs and representations within which learners work. It is not a neutral container. It shapes what counts as a credible argument, a competent explanation, or a finished piece of writing.</p>
+          <p class="term-ex">— textbooks, discussions, teacher explanations, search results, and now AI-generated content the student consumes and submits</p>
+        </div>
+      </div>
+      <div class="term">
+        <div class="label"><span class="num">term iii</span>Defined</div>
+        <div>
+          <div class="term-name">Cognitive bypass</div>
+          <p class="term-def">The condition in which the symbolic output of an assignment is produced <em>without</em> the cognitive work the assignment was designed to require. The essay exists. The learning has not occurred.</p>
+          <p class="term-ex">— distinct from cheating, which is an ethical category. Cognitive bypass is a <em>learning</em> category about whether mental work has taken place.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE / ONG ============ -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow fade"><span class="num">§ 03</span> A media ecology lens</div>
+    <h2 class="fade italic">Walter Ong named three stages of how humans produce symbols.<br>This is the fourth.</h2>
+    <p class="standfirst fade col-wide" style="margin-left:0;">In every prior stage the human being remained the source. Tertiary algorithmicity names a condition in which, <em>for the first time</em>, the prevailing communication technology actively generates symbolic content on the human's behalf.</p>
+
+    <div class="stages fade">
+      <div class="stage" data-stage="0">
+        <span class="marker"></span>
+        <div class="roman">I.</div>
+        <div class="era">Pre-history → antiquity</div>
+        <h4>Primary orality</h4>
+        <p class="producer"><strong>Producer:</strong> the human voice. Thought is aggregative, situational, communal — shaped by the affordances of spoken language as the medium for preserving knowledge.</p>
+      </div>
+      <div class="stage" data-stage="1">
+        <span class="marker"></span>
+        <div class="roman">II.</div>
+        <div class="era">c. 3000 BCE → 20th c.</div>
+        <h4>Literacy</h4>
+        <p class="producer"><strong>Producer:</strong> the writing hand. Ideas can be fixed, compared, and systematically built upon. The knower separates from the known in ways that support sustained abstract analysis.</p>
+      </div>
+      <div class="stage" data-stage="2">
+        <span class="marker"></span>
+        <div class="roman">III.</div>
+        <div class="era">Telephone → broadcast → web</div>
+        <h4>Secondary orality</h4>
+        <p class="producer"><strong>Producer:</strong> the speaking human, broadcast. Electronic media reintroduces oral immediacy into cultures that have already internalized literate patterns of thought.</p>
+      </div>
+      <div class="stage tertiary" data-stage="3">
+        <span class="marker"></span>
+        <div class="roman">IV.</div>
+        <div class="era">November 2022 →</div>
+        <h4>Tertiary algorithmicity</h4>
+        <p class="producer"><strong>Producer:</strong> the model. The technology no longer mediates symbolic activity — it generates it. The student who prompts an LLM is not expressing their thinking through a tool. They are delegating symbolic production to an algorithm they do not understand.</p>
+      </div>
+    </div>
+
+    <div class="timeline-detail fade" id="timeline-detail">
+      <div class="heading">The fourth stage — what's different</div>
+      <h5>For the first time, the medium becomes the maker.</h5>
+      <p class="body">In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. <strong style="color:var(--ink);">In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUR CHARACTERISTICS ============ -->
+<section id="characteristics">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 04</span> Four characteristics that make this stage distinctive</div>
+    <h2 class="fade italic">Each carries a direct implication for school.</h2>
+
+    <div class="characteristics fade">
+      <div class="char">
+        <span class="num">i.</span>
+        <div class="glyph">N</div>
+        <h4>Noetic displacement</h4>
+        <p class="summary">The externalization of cognitive operations — analysis, synthesis, evaluation, argumentation — that previously required <em>internal</em> mental processing. Where literacy externalized memory, generative AI externalizes thinking itself.</p>
+        <p class="example">A sixth-grader is asked to explain the water cycle in their own words. Before AI, their struggle to articulate the difference between evaporation and condensation <em>was</em> the learning. With AI, the productive gap never opens.</p>
+      </div>
+      <div class="char">
+        <span class="num">ii.</span>
+        <div class="glyph">R</div>
+        <h4>Rhetorical saturation</h4>
+        <p class="summary">The condition in which AI-generated content becomes so prevalent and so polished that the symbolic environment is flooded with competent but undifferentiated prose. The scarcity value of competent writing — which historically functioned as <em>evidence of learning</em> — collapses.</p>
+        <p class="example">An English teacher reviewing essays on <em>The Great Gatsby</em> finds prose that is structurally identical: competent thesis, orderly paragraphs, tidy conclusion — stripped of the idiosyncratic voice that marks genuine engagement.</p>
+      </div>
+      <div class="char">
+        <span class="num">iii.</span>
+        <div class="glyph">E</div>
+        <h4>Existential abstraction</h4>
+        <p class="summary">The increasing distance between the learner and the experience of confronting genuine intellectual difficulty. Learning depends on the encounter with resistance — the moment when existing mental models prove inadequate. AI offers a way to bypass that encounter entirely.</p>
+        <p class="example">Following a GPS voice versus reading a topographic map. You reach the destination either way. Only one of them leaves you with a mental model of the terrain.</p>
+      </div>
+      <div class="char">
+        <span class="num">iv.</span>
+        <div class="glyph">I</div>
+        <h4>Infrastructural consolidation</h4>
+        <p class="summary">The growing dependence of schools on a small number of commercial AI platforms whose design choices, pricing structures, and content policies shape the symbolic environment of learning from <em>outside</em> the institution itself.</p>
+        <p class="example">What counts as a good essay, a clear explanation, a reasonable argument — these choices migrate from teachers, departments, and districts to platform designers and model trainers most teachers will never meet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KAPUR 2x2 ============ -->
+<section id="kapur">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 05</span> The trap, in two dimensions</div>
+    <h2 class="fade italic">Performance is not learning.<br>Manu Kapur's matrix makes the gap visible.</h2>
+    <p class="standfirst fade">Productive failure research arranges four relationships between performance and learning. Three of the quadrants have long been familiar in schools. Generative AI dramatically expands the fourth.</p>
+
+    <div class="matrix-wrap fade">
+      <div class="matrix-axis title-x">Performance →</div>
+      <div class="matrix-axis left">← Learning</div>
+
+      <div class="matrix-axis top-l"></div>
+      <div class="matrix-axis top-r"></div>
+
+      <div class="cell" style="grid-row:2;grid-column:2;">
+        <span class="stamp">i.</span>
+        <div>
+          <div class="cmono">High performance · High learning</div>
+          <div class="ctitle">Productive success</div>
+          <div class="cbody">The ideal. The student performs well, and the underlying schema construction has occurred. Outputs and understanding are aligned.</div>
+        </div>
+      </div>
+
+      <div class="cell danger" style="grid-row:2;grid-column:4;">
+        <span class="stamp">ii.</span>
+        <div>
+          <div class="cmono">High performance · Low learning</div>
+          <div class="ctitle">Unproductive success</div>
+          <div class="cbody">A correct or competent outcome <em>without</em> the cognitive processing the performance was meant to develop. The polished essay; the right answer; no schema. <strong>Generative AI is, in this framing, an unproductive-success engine.</strong></div>
+        </div>
+      </div>
+
+      <div class="matrix-row-rule"></div>
+      <div class="matrix-spacer"></div>
+
+      <div class="cell" style="grid-row:3;grid-column:2;">
+        <span class="stamp">iii.</span>
+        <div>
+          <div class="cmono">Low performance · High learning</div>
+          <div class="ctitle">Productive failure</div>
+          <div class="cbody">The counter-intuitive but well-documented finding: initial failure, when properly structured, can produce <em>deeper</em> learning than immediate success. The struggle is the mechanism.</div>
+        </div>
+      </div>
+
+      <div class="cell" style="grid-row:3;grid-column:4;">
+        <span class="stamp">iv.</span>
+        <div>
+          <div class="cmono">Low performance · Low learning</div>
+          <div class="ctitle">Unproductive failure</div>
+          <div class="cbody">What most educators already work to avoid: the student fails to perform <em>and</em> fails to learn. The familiar enemy of schooling.</div>
+        </div>
+      </div>
+
+      <div class="matrix-axis bot-l"></div>
+      <div class="matrix-axis bot-r"></div>
+    </div>
+
+    <p class="pullquote fade" style="margin-top:96px;">Generative AI produces polished symbolic outputs from minimal cognitive inputs.<span class="src">— On the unproductive-success engine</span></p>
+  </div>
+</section>
+
+<!-- ============ GPS VS MAP ============ -->
+<section id="terrain">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 06</span> A metaphor for what gets lost</div>
+    <h2 class="fade italic">Two ways of getting somewhere.<br>Only one leaves you with a map of the terrain.</h2>
+
+    <div class="duo fade">
+      <div class="left">
+        <div class="label">Topographic map · with friction</div>
+        <div class="heading">Reading the map.</div>
+        <div class="stage-vis map"></div>
+        <p>You analyze the landscape, feel the incline of the hills, make active choices about the path.</p>
+        <p>The cognitive resistance is the point. You arrive — <em>and</em> you arrive with a mental model. If the map disappears tomorrow, you can still navigate.</p>
+      </div>
+      <div class="right">
+        <div class="label">GPS voice · frictionless</div>
+        <div class="heading">Following the turns.</div>
+        <div class="stage-vis gps"><span class="line"></span></div>
+        <p>You arrive at the correct destination. You maintain no presence in the journey.</p>
+        <p>If the GPS fails, you are lost — because you never developed a mental model of the terrain. The result is yours. The wisdom of the struggle is not.</p>
+      </div>
+    </div>
+
+    <p class="small fade" style="text-align:center;margin-top:36px;color:var(--ink-mute);">Existential abstraction is the GPS condition, scaled across every domain that runs on language.</p>
+  </div>
+</section>
+
+<!-- ============ LIVE DEMO ============ -->
+<section id="demo">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 07</span> Watch two essays write themselves</div>
+    <h2 class="fade italic">Same prompt. Same grade. Same word count.<br>Different cognitive events.</h2>
+    <p class="standfirst fade">The output, on the page, is comparable. The mechanism that produced it is not.</p>
+
+    <div class="stream-wrap fade">
+      <div class="stream a">
+        <div class="head"><span>Stream A · 12s elapsed</span><span class="who">via LLM</span></div>
+        <div class="title">The causes of the French Revolution.</div>
+        <div class="text" id="stream-a"></div>
+        <div class="meta"><span>Output produced</span><span id="meta-a">— keystrokes: 9</span></div>
+      </div>
+      <div class="stream b">
+        <div class="head"><span>Stream B · 42 min elapsed</span><span class="who">by student</span></div>
+        <div class="title">The causes of the French Revolution.</div>
+        <div class="text" id="stream-b"></div>
+        <div class="meta"><span>Cognitive work performed</span><span id="meta-b">— keystrokes: 1,824</span></div>
+      </div>
+    </div>
+
+    <div class="demo-controls fade">
+      <button class="btn primary" id="demo-run">Replay both</button>
+      <button class="btn" id="demo-skip">Skip to end</button>
+    </div>
+
+    <p class="small fade" style="text-align:center;margin-top:40px;color:var(--ink-mute);max-width:60ch;margin-left:auto;margin-right:auto;">
+      Stream A is symbolic production by an algorithm; the student's contribution is the prompt. Stream B is symbolic production by a student, with all of its hesitation, deletion, and reach. The polished column will be graded the same. The cognitive event has only happened in one of them.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FRAMEWORK ============ -->
+<section id="framework">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 08</span> The Pedagogical Friction Framework</div>
+    <h2 class="fade italic">If the problem is structural, the response has to be designed.</h2>
+    <p class="standfirst fade">Pedagogical friction is the intentional design of learning environments that preserve the productive cognitive resistance necessary for genuine understanding — in contexts where tools make bypassing that resistance both possible and attractive. The framework names four dimensions along which it operates.</p>
+
+    <div class="friction-grid fade">
+      <div class="fdim" data-dim="noetic">
+        <div class="ord">Dimension 01 — cognitive</div>
+        <h4>Noetic friction</h4>
+        <div class="ko">Schema construction · accommodation</div>
+        <p class="desc">The cognitive resistance encountered when a learner's existing knowledge structures prove insufficient and must be revised. Difficulty is not an obstacle to learning. It is a constitutive feature of it.</p>
+        <div class="threat"><strong>Threatened by AI when —</strong> the signal of <em>not knowing</em> is muted by a polished output before accommodation can occur.</div>
+        <div class="design"><span class="h">Design move</span>Require initial attempts before any AI interaction. Assess the visible trajectory of thinking, not only the finished product.</div>
+      </div>
+      <div class="fdim" data-dim="rhetorical">
+        <div class="ord">Dimension 02 — expressive</div>
+        <h4>Rhetorical friction</h4>
+        <div class="ko">Writing as a mode of thinking</div>
+        <p class="desc">The resistance encountered in the act of communicating to others — the struggle to find the right words, anticipate objections, organize complex ideas. Writers discover what they think through the labor of trying to say it.</p>
+        <div class="threat"><strong>Threatened by AI when —</strong> production of text is decoupled from the cognitive processes writing was meant to engage.</div>
+        <div class="design"><span class="h">Design move</span>Assignments anchored in personal experience, situated knowledge, live dialogue, and visible revision. Make voice irreducibly human.</div>
+      </div>
+      <div class="fdim" data-dim="existential">
+        <div class="ord">Dimension 03 — dispositional</div>
+        <h4>Existential friction</h4>
+        <div class="ko">Sitting with not-knowing</div>
+        <p class="desc">The encounter with genuine uncertainty, intellectual vulnerability, the limits of one's own understanding. Curiosity, persistence, and intellectual humility are forged in repeated experiences of <em>not knowing — then coming to know</em>.</p>
+        <div class="threat"><strong>Threatened by AI when —</strong> answers arrive before students have fully experienced the questions. The habit of inquiry atrophies.</div>
+        <div class="design"><span class="h">Design move</span>Sequences that require students to sit with ambiguity before resolution. Teachers model intellectual vulnerability as a stance, not a weakness.</div>
+      </div>
+      <div class="fdim" data-dim="infrastructural">
+        <div class="ord">Dimension 04 — institutional</div>
+        <h4>Infrastructural friction</h4>
+        <div class="ko">Policy · pacing · assessment</div>
+        <p class="desc">The structures — grades, schedules, pacing guides, technology policies — that either support or undermine the preservation of productive friction. A teacher's good assignment can be hollowed out by a system that rewards frictionless output.</p>
+        <div class="threat"><strong>Threatened by AI when —</strong> policies address only integrity and data privacy, while pedagogy is left to chance.</div>
+        <div class="design"><span class="h">Design move</span>AI policy as a three-pillar instrument: integrity, privacy, <em>and</em> an explicit pedagogical stance on the work to be preserved.</div>
+      </div>
+    </div>
+
+    <p class="pullquote fade" style="color:#f1ead9;border-color:var(--accent-soft);margin-top:96px;max-width:30ch;">Friction without support does not produce productive struggle. It produces aversion to challenge.<span class="src" style="color:#8a8278;">— A necessary caveat</span></p>
+  </div>
+</section>
+
+<!-- ============ EQUITY ============ -->
+<section id="equity">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 09</span> Not all friction is the same</div>
+    <h2 class="fade italic">Productive friction drives learning.<br>Exclusionary friction blocks access to it.</h2>
+    <p class="standfirst fade">Any honest framework has to distinguish the two — or it becomes a rationale for withholding tools that serve equity goals. The design challenge is to <em>reduce exclusionary barriers while preserving productive cognitive demands</em>.</p>
+
+    <div class="equity-card fade">
+      <h4>An English learner reading a complex text.</h4>
+      <div class="equity-pair">
+        <div class="row good">
+          <div class="tag">Reduces exclusionary friction</div>
+          <h5>AI translation during the reading phase</h5>
+          <p>The language barrier is unrelated to the construct being assessed — historical reasoning, literary interpretation, scientific argument. The tool removes a barrier that was never the point of the assignment.</p>
+        </div>
+        <div class="row bad">
+          <div class="tag">Would erode productive friction</div>
+          <h5>AI generation during the writing phase</h5>
+          <p>Language production <em>is</em> the construct here. Allowing AI to compose the student's response bypasses the cognitive demand the assignment was designed to build. The tool, in this position, replaces the lesson.</p>
+        </div>
+      </div>
+      <p class="small" style="color:var(--ink-mute);margin:0;">A district's AI policy cannot be one rule applied uniformly. It is a set of principles teachers and leaders interpret in light of <em>which students, which goals, which moment in the learning sequence</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section id="closing">
+  <div class="col-wide">
+    <div class="eyebrow fade"><span class="num">§ 10</span> Closing</div>
+    <h2 class="fade italic" style="max-width:18ch;">The question was never whether to ban it or embrace it.</h2>
+    <p class="standfirst fade">That framing — which has dominated public discourse since late 2022 — is a false binary that obscures the more fundamental questions:</p>
+    <p class="fade" style="font-size:30px;line-height:1.35;font-style:italic;margin:40px 0;color:var(--ink);max-width:24ch;">
+      What cognitive work must be protected, and how can institutions protect it?
+    </p>
+    <p class="fade">Schools that treat AI as just the latest technology to integrate into existing practice will find that the practice itself has been hollowed out. Schools that develop the conceptual and institutional infrastructure to distinguish between productive and unproductive uses of AI — between friction that serves learning and friction that impedes it — will be better positioned to fulfill their core mission in a period of substantial technological change.</p>
+    <p class="fade">The Pedagogical Friction Framework is offered as one contribution to that infrastructure, with the recognition that much work remains to be done.</p>
+
+    <div class="citation fade">
+      <div class="tag">Original article</div>
+      <p class="cite"><strong>Miner, M. J.</strong> When the Output Looks Like Learning: Tertiary Algorithmicity, Unproductive Success, and the Case for Pedagogical Friction in K–12 Schools. <em>i.e.: Inquiry in Education,</em> Vol. 18, Iss. 1, Article 4. Published by the Center for Inquiry in Education, National-Louis University, Chicago, IL.</p>
+    </div>
+
+    <p class="footnote fade" style="text-align:center;margin-top:80px;">end of companion · designed as a reading aid · not a substitute for the article itself</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+  // Progress bar
+  const prog = document.getElementById('prog');
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.max(0, Math.min(1, window.scrollY / max));
+    prog.style.width = (pct * 100) + '%';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Fade-in on intersect — with safety nets so content never stays invisible
+  const fadeEls = document.querySelectorAll('.fade');
+  // (1) Reveal anything already in viewport immediately on next frame
+  requestAnimationFrame(() => {
+    fadeEls.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+    });
+  });
+  // (2) Observe the rest for fade-in as user scrolls
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
+  fadeEls.forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
+  // (3) Hard safety net: if anything is still hidden after 1.5s, reveal it.
+  setTimeout(() => {
+    document.querySelectorAll('.fade:not(.in)').forEach(el => el.classList.add('in'));
+  }, 1500);
+
+  // Smooth scroll for nav
+  document.querySelectorAll('.topbar a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          window.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // Scenario annotations — bidirectional hover/click
+  const anns = document.querySelectorAll('.ann');
+  const annCards = document.querySelectorAll('.ann-card');
+  function setActive(n, on) {
+    anns.forEach(a => { if (a.dataset.ann === n) a.classList.toggle('active', on); });
+    annCards.forEach(c => { if (c.dataset.ann === n) c.classList.toggle('active', on); });
+  }
+  anns.forEach(a => {
+    a.addEventListener('mouseenter', () => setActive(a.dataset.ann, true));
+    a.addEventListener('mouseleave', () => setActive(a.dataset.ann, false));
+  });
+  annCards.forEach(c => {
+    c.addEventListener('mouseenter', () => setActive(c.dataset.ann, true));
+    c.addEventListener('mouseleave', () => setActive(c.dataset.ann, false));
+  });
+
+  // Timeline stages — clickable to update detail
+  const stageData = [
+    {
+      heading: "The first stage — speech",
+      title: "Knowledge lived in the voice.",
+      body: "In primary orality, knowledge could not be preserved in any external form. Thought was therefore aggregative, redundant, situational, and communal. Oral cultures developed intricate systems of medicine, navigation, and astronomy without writing — the point is not that they lacked rationality, but that the producer of symbols was always the speaking, present human body."
+    },
+    {
+      heading: "The second stage — writing",
+      title: "Ideas could be fixed, compared, and built upon.",
+      body: "Chirographic and later typographic literacy enabled new modes of thought organization. Writing allowed the separation of the knower from the known in ways that supported sustained abstract analysis and the institutional accumulation of knowledge across generations. This is the stage in which the school as we know it is organized."
+    },
+    {
+      heading: "The third stage — broadcast",
+      title: "Oral immediacy returned — but on literate ground.",
+      body: "Secondary orality describes the oral culture produced by electronic media: telephone, radio, television. The talk show host speaks spontaneously but within a format designed through literate production practices. Electronic media reintroduced oral immediacy into cultures that had already internalized literate patterns of thought."
+    },
+    {
+      heading: "The fourth stage — what's different",
+      title: "For the first time, the medium becomes the maker.",
+      body: "In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content. This is a shift in who or what is making meaning, not merely in how meaning travels."
+    }
+  ];
+  const detail = document.getElementById('timeline-detail');
+  const stages = document.querySelectorAll('.stage');
+  function showStage(i) {
+    stages.forEach(s => s.classList.toggle('active', +s.dataset.stage === i));
+    const d = stageData[i];
+    detail.style.opacity = '0';
+    setTimeout(() => {
+      detail.innerHTML = `
+        <div class="heading">${d.heading}</div>
+        <h5>${d.title}</h5>
+        <p class="body">${d.body}</p>`;
+      detail.style.opacity = '1';
+    }, 180);
+  }
+  stages.forEach(s => {
+    s.addEventListener('click', () => showStage(+s.dataset.stage));
+    s.addEventListener('mouseenter', () => showStage(+s.dataset.stage));
+  });
+  showStage(3); // start on tertiary algorithmicity
+
+  // Demo streams — typing
+  const streamA = document.getElementById('stream-a');
+  const streamB = document.getElementById('stream-b');
+  const metaA = document.getElementById('meta-a');
+  const metaB = document.getElementById('meta-b');
+
+  const textA = "The French Revolution erupted in 1789 from a convergence of fiscal, social, and ideological crises. Years of war and royal extravagance had emptied the treasury, while a rigid system of estates concentrated burdens on the commoners who could least afford them. Enlightenment thought provided the vocabulary; bread shortages provided the spark. When the Estates-General met at Versailles, a constitutional revolution became a popular one, and the old regime did not survive the decade.";
+
+  // Stream B is hesitant, with crossouts and rewrites — encoded as tokens
+  const tokensB = [
+    {t:"So the French Revolution was caused by ", d:60},
+    {t:"a lot of things. ", d:80, then:"cross", crossText:"a lot of things. ", insText:"more than one thing. "},
+    {t:"Most people say it was about ", d:60},
+    {t:"taxes", d:90, then:"cross", crossText:"taxes ", insText:"money "},
+    {t:" — but I think it's really about ", d:60},
+    {t:"who got to decide things. ", d:80},
+    {t:"The king was running out of money because of wars and spending, ", d:50},
+    {t:"and the people who got taxed weren't the ones with the most money. ", d:50},
+    {t:"That feels unfair, and ", d:60},
+    {t:"Enlightenment writers had been saying ", d:50, then:"cross", crossText:"Enlightenment writers had been saying ", insText:"people had been reading writers who said "},
+    {t:"that government should come from the people. ", d:60},
+    {t:"When the Estates-General met, the third estate ", d:50},
+    {t:"got tired of being outvoted ", d:60},
+    {t:"and broke away. ", d:60},
+    {t:"I think the bread shortages were the part that ", d:60},
+    {t:"got regular people involved", d:60, then:"cross", crossText:"got regular people involved", insText:"turned a political fight into a popular one"},
+    {t:". ", d:50},
+    {t:"Once that happened the old way couldn't continue. ", d:60}
+  ];
+
+  let demoTimers = [];
+  function clearDemo() {
+    demoTimers.forEach(t => clearTimeout(t));
+    demoTimers = [];
+  }
+
+  function playA() {
+    streamA.innerHTML = '';
+    // Stream A appears very fast — basically pasted
+    let i = 0;
+    function step() {
+      if (i >= textA.length) {
+        streamA.innerHTML = textA + '<span class="cursor"></span>';
+        return;
+      }
+      // Reveal in 5-9 char bursts to feel "generated"
+      const burst = 5 + Math.floor(Math.random() * 6);
+      i = Math.min(textA.length, i + burst);
+      streamA.innerHTML = textA.slice(0, i) + '<span class="cursor"></span>';
+      demoTimers.push(setTimeout(step, 35));
+    }
+    step();
+  }
+
+  function playB() {
+    streamB.innerHTML = '';
+    let cur = '';
+    let ti = 0;
+    function nextToken() {
+      if (ti >= tokensB.length) {
+        streamB.innerHTML = cur + '<span class="cursor"></span>';
+        return;
+      }
+      const tok = tokensB[ti++];
+      // Type tok.t character-by-character
+      let ci = 0;
+      function typeChar() {
+        if (ci >= tok.t.length) {
+          if (tok.then === 'cross') {
+            // Pause then crossout
+            demoTimers.push(setTimeout(() => {
+              cur = cur.slice(0, cur.length - tok.crossText.length)
+                  + '<span class="cross">' + tok.crossText + '</span>'
+                  + '<span class="ins">' + tok.insText + '</span>';
+              streamB.innerHTML = cur + '<span class="cursor"></span>';
+              demoTimers.push(setTimeout(nextToken, 500));
+            }, 450));
+          } else {
+            demoTimers.push(setTimeout(nextToken, 250));
+          }
+          return;
+        }
+        cur += tok.t[ci++];
+        streamB.innerHTML = cur + '<span class="cursor"></span>';
+        demoTimers.push(setTimeout(typeChar, tok.d || 60));
+      }
+      typeChar();
+    }
+    nextToken();
+  }
+
+  function runDemo() {
+    clearDemo();
+    playA();
+    playB();
+  }
+  function skipDemo() {
+    clearDemo();
+    streamA.innerHTML = textA;
+    // assemble final text of B
+    let cur = '';
+    tokensB.forEach(tok => {
+      cur += tok.t;
+      if (tok.then === 'cross') {
+        cur = cur.slice(0, cur.length - tok.crossText.length)
+            + '<span class="cross">' + tok.crossText + '</span>'
+            + '<span class="ins">' + tok.insText + '</span>';
+      }
+    });
+    streamB.innerHTML = cur;
+  }
+
+  // Start demo when section comes into view — with scroll fallback
+  const demoSection = document.getElementById('demo');
+  let demoStarted = false;
+  function startDemoOnce() {
+    if (demoStarted) return;
+    demoStarted = true;
+    runDemo();
+  }
+  const demoObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) startDemoOnce(); });
+  }, { threshold: 0.3 });
+  demoObs.observe(demoSection);
+  // Scroll fallback in case IO doesn't fire
+  window.addEventListener('scroll', () => {
+    if (demoStarted) return;
+    const r = demoSection.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.7 && r.bottom > 0) startDemoOnce();
+  }, { passive: true });
+
+  document.getElementById('demo-run').addEventListener('click', runDemo);
+  document.getElementById('demo-skip').addEventListener('click', skipDemo);
+
+  // Tertiary algorithmicity dimension hover persistence
+  document.querySelectorAll('.fdim').forEach(d => {
+    d.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.fdim').forEach(x => x.classList.remove('active'));
+      d.classList.add('active');
+    });
+  });
+</script>
+
+
+
+</body></html>
