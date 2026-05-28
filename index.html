@@ -411,7 +411,7 @@
   #timeline { background: var(--bg-2); }
   .stages {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0;
     margin-top: 64px;
     border-top: 1px solid var(--border);
@@ -427,6 +427,8 @@
   }
   .stage:last-child { border-right: 0; }
   .stage:hover, .stage.active { background: var(--surface); }
+  .stage.extended { background: rgba(94,138,130,.035); }
+  .stage.extended:hover, .stage.extended.active { background: rgba(94,138,130,.08); }
   .stage.tertiary { background: rgba(193,154,90,.04); }
   .stage.tertiary:hover, .stage.tertiary.active { background: rgba(193,154,90,.09); }
   .stage .roman {
@@ -444,6 +446,7 @@
     font-style: italic;
     color: var(--ink);
   }
+  .stage.extended h4 { color: var(--teal-soft); }
   .stage.tertiary h4 { color: var(--gold); }
   .stage .era {
     font-family: var(--mono);
@@ -465,6 +468,7 @@
     border: 1px solid var(--ink-mute);
     border-radius: 50%;
   }
+  .stage.extended .marker { background: var(--teal); border-color: var(--teal); }
   .stage.tertiary .marker { background: var(--gold); border-color: var(--gold); }
   .timeline-detail {
     margin-top: 56px;
@@ -1139,8 +1143,8 @@
       <span class="pipe">/</span>
       <span>A media ecology lens</span>
     </div>
-    <h2 class="fade">Walter Ong named three stages of how humans produce symbols.<br><span class="ital">This is the fourth.</span></h2>
-    <p class="standfirst fade col-wide" style="margin-left:0;">In every prior stage the human being remained the source. Tertiary algorithmicity names a condition in which, <em>for the first time</em>, the prevailing communication technology actively generates symbolic content on the human's behalf.</p>
+    <h2 class="fade">Walter Ong named three stages of how media reshape consciousness.<br><span class="ital">This framework adds two extensions.</span></h2>
+    <p class="standfirst fade col-wide" style="margin-left:0;">Algorithmic secondary orality names the transitional stage in which humans still created symbolic content, but algorithms increasingly decided what reached which consciousness. Tertiary algorithmicity names the next threshold: systems that both curate and generate symbolic content on the human's behalf.</p>
 
     <div class="stages fade">
       <div class="stage" data-stage="0">
@@ -1164,19 +1168,26 @@
         <h4>Secondary orality</h4>
         <p class="producer"><strong>Producer:</strong> the speaking human, broadcast. Electronic media reintroduces oral immediacy into cultures that have already internalized literate patterns of thought.</p>
       </div>
-      <div class="stage tertiary active" data-stage="3">
+      <div class="stage extended" data-stage="3">
         <span class="marker"></span>
         <div class="roman">IV.</div>
-        <div class="era">November 2022 →</div>
+        <div class="era">2006 → early 2020s</div>
+        <h4>Algorithmic secondary orality</h4>
+        <p class="producer"><strong>Producer:</strong> the human, sorted by the feed. People still create the posts, videos, comments, and images, but recommendation systems increasingly determine what reaches whom, when, and in what sequence.</p>
+      </div>
+      <div class="stage tertiary active" data-stage="4">
+        <span class="marker"></span>
+        <div class="roman">V.</div>
+        <div class="era">Late 2022 →</div>
         <h4>Tertiary algorithmicity</h4>
-        <p class="producer"><strong>Producer:</strong> the model. The technology no longer mediates symbolic activity — it generates it. The student who prompts an LLM is not expressing their thinking through a tool. They are delegating symbolic production to an algorithm they do not understand.</p>
+        <p class="producer"><strong>Producer:</strong> the model, often with the human as prompter. The technology no longer only mediates symbolic activity — it generates it. Students can delegate symbolic production before the learning struggle has occurred.</p>
       </div>
     </div>
 
     <div class="timeline-detail fade" id="timeline-detail" style="opacity: 1;">
-        <div class="heading">The fourth stage — what's different</div>
+        <div class="heading">The fifth stage — what's different</div>
         <h5>For the first time, the medium becomes the maker.</h5>
-        <p class="body">In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. <strong>In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels.</p></div>
+        <p class="body">In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In algorithmic secondary orality, humans still produced the content, but algorithmic systems increasingly curated its circulation. <strong>In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels.</p></div>
   </div>
 </section>
 
@@ -1542,9 +1553,14 @@
       body: "Secondary orality describes the oral culture produced by electronic media: telephone, radio, television. The talk show host speaks spontaneously but within a format designed through literate production practices. Electronic media reintroduced oral immediacy into cultures that had already internalized literate patterns of thought."
     },
     {
-      heading: "The fourth stage — what's different",
+      heading: "The fourth stage — algorithmic curation",
+      title: "Humans still create, but algorithms decide what arrives.",
+      body: "Algorithmic secondary orality names the transitional stage of social platforms, recommendation systems, and personalized feeds. Human beings still produce the posts, videos, comments, and images. The shift is that algorithmic systems increasingly organize attention, sequence the archive, and fragment the shared symbolic environment. This stage matters because it separates <em>algorithmic distribution</em> from <em>algorithmic generation</em>."
+    },
+    {
+      heading: "The fifth stage — what's different",
       title: "For the first time, the medium becomes the maker.",
-      body: "In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. <strong>In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels."
+      body: "In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In algorithmic secondary orality, humans still produced the content, but algorithmic systems increasingly curated its circulation. <strong>In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels."
     }
   ];
   const detail = document.getElementById('timeline-detail');
@@ -1565,7 +1581,7 @@
     s.addEventListener('click', () => showStage(+s.dataset.stage));
     s.addEventListener('mouseenter', () => showStage(+s.dataset.stage));
   });
-  showStage(3);
+  showStage(4);
 
   // Demo streams
   const streamA = document.getElementById('stream-a');
