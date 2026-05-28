@@ -1,317 +1,69 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta name="description" content="Digital companion to Micah J. Miner's i.e.: inquiry in education article on generative AI, tertiary algorithmicity, and pedagogical friction.">
+
+<html lang="en">
+<head>
 <meta charset="utf-8">
+<meta name="description" content="Digital companion to Micah J. Miner's i.e.: inquiry in education article on generative AI, tertiary algorithmicity, unproductive success, and pedagogical friction.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>When the Output Looks Like Learning — A Digital Companion</title>
-<style>/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/26546e04-1c4a-4347-9f10-b2015554c43d.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/d1676891-a8c8-4d2d-a5f0-9367575dba50.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/75344893-4d08-4c33-88d7-2832f6ea0475.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/729b1c1f-fda9-4d05-9315-6d1086a5895a.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/f3828f0d-253a-4dd1-adba-a171edf853c6.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/6cdb4ccf-0da9-4be1-bf3a-20358fc55f4a.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Newsreader';
-  font-style: italic;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("assets/05e993cd-dba4-402b-a2a3-8e13250f1cde.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Newsreader';
-  font-style: italic;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("assets/48f18e23-ed90-4a67-af23-86eec973cd32.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Newsreader';
-  font-style: italic;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("assets/0fd315ab-8bed-462b-83fa-9ef4a04df162.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Newsreader';
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("assets/f030aeb4-ae30-49ef-a6cd-5da352ebbec4.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Newsreader';
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("assets/af6ad642-564e-42f2-ba9c-007c870e5af3.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Newsreader';
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("assets/0d23c1a3-9628-44b8-81a1-0a0bf066175e.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-</style>
+<title>When the Output Looks Like Learning — Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="assets/fonts.css" rel="stylesheet">
 <style>
   :root {
-    --bg: #f1ead9;
-    --bg-deep: #e8dfc7;
-    --paper: #f7f1e1;
-    --ink: #1c1815;
-    --ink-soft: #4a4540;
-    --ink-mute: #8a8278;
-    --rule: #d8cfb8;
-    --rule-soft: #e5ddc5;
-    --accent: #b04a2c;
-    --accent-soft: #d68a6d;
-    --cool: #3a4a5e;
-    --cool-soft: #8395a8;
-    --black-ink: #0c0a08;
-    --serif: "Newsreader", Georgia, serif;
+    --bg: #0b0e14;
+    --bg-2: #10141b;
+    --surface: #161a22;
+    --surface-2: #1c2129;
+    --surface-hi: #232934;
+    --border: #2a3038;
+    --border-soft: #1d2229;
+    --ink: #ecead8;
+    --ink-soft: #c4bfae;
+    --ink-mute: #8a877a;
+    --ink-dim: #5e5b53;
+    --gold: #c19a5a;
+    --gold-soft: #d6b885;
+    --gold-dim: #8e7444;
+    --teal: #5e8a82;
+    --teal-soft: #82a8a0;
+    --rust: #b06b47;
+    --serif: "EB Garamond", "Cormorant Garamond", Georgia, serif;
     --mono: "JetBrains Mono", ui-monospace, monospace;
   }
   * { box-sizing: border-box; }
-  html, body { background: var(--bg); color: var(--ink); margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0; padding: 0;
+  }
   body {
     font-family: var(--serif);
-    font-size: 20px;
+    font-size: 21px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
-  ::selection { background: var(--accent); color: var(--paper); }
+  ::selection { background: var(--gold); color: var(--bg); }
 
-  /* Paper grain */
+  /* Subtle grid texture (matches hub) */
   body::before {
     content: "";
     position: fixed; inset: 0;
     background-image:
-      radial-gradient(circle at 20% 30%, rgba(28,24,21,.018) 0, transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(176,74,44,.022) 0, transparent 40%);
+      linear-gradient(rgba(236,234,216,.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(236,234,216,.018) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(193,154,90,.04), transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(94,138,130,.04), transparent 55%);
     pointer-events: none;
     z-index: 0;
   }
@@ -320,652 +72,648 @@
   /* Top chrome */
   .topbar {
     position: fixed; top: 0; left: 0; right: 0;
-    height: 52px;
+    height: 56px;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 28px;
+    padding: 0 32px;
     font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: linear-gradient(to bottom, rgba(241,234,217,.96), rgba(241,234,217,.85) 70%, rgba(241,234,217,0));
-    backdrop-filter: blur(4px);
-    z-index: 50;
-    color: var(--ink-soft);
-  }
-  .topbar .lhs { display: flex; gap: 24px; align-items: center; }
-  .topbar .mark {
-    color: var(--accent);
-    font-weight: 600;
+    font-size: 11px;
     letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, rgba(11,14,20,.97), rgba(11,14,20,.85) 70%, rgba(11,14,20,0));
+    backdrop-filter: blur(6px);
+    z-index: 50;
+    color: var(--ink-mute);
   }
-  .topbar .nav { display: flex; gap: 22px; align-items: center; }
-  .topbar a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
-  .topbar a:hover { color: var(--accent); }
+  .topbar .lhs { display: flex; gap: 26px; align-items: center; }
+  .topbar .brand {
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+  }
+  .topbar .crumb { color: var(--ink-soft); }
+  .topbar .crumb em { color: var(--gold-soft); font-style: italic; text-transform: none; letter-spacing: 0.04em; font-family: var(--serif); font-size: 14px; }
+  .topbar .nav { display: flex; gap: 24px; align-items: center; }
+  .topbar a { color: var(--ink-mute); text-decoration: none; transition: color .2s; }
+  .topbar a:hover { color: var(--gold); }
   .topbar .progress {
     position: absolute; left: 0; bottom: 0;
-    height: 2px; background: var(--accent);
+    height: 1px; background: var(--gold);
     width: 0;
     transition: width .15s linear;
   }
 
   /* Sectioning */
-  section { position: relative; padding: 120px 28px; }
-  .wrap { max-width: 1180px; margin: 0 auto; }
-  .col { max-width: 720px; margin: 0 auto; }
-  .col-wide { max-width: 920px; margin: 0 auto; }
+  section { position: relative; padding: 140px 32px; }
+  .wrap { max-width: 1240px; margin: 0 auto; }
+  .col { max-width: 760px; margin: 0 auto; }
+  .col-wide { max-width: 960px; margin: 0 auto; }
 
   /* Eyebrow */
   .eyebrow {
     font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.18em;
+    font-size: 11px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent);
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 28px;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px;
+    font-weight: 500;
   }
-  .eyebrow::before {
-    content: ""; width: 28px; height: 1px; background: var(--accent);
-    display: inline-block;
+  .eyebrow .sep {
+    width: 32px; height: 1px; background: var(--gold-dim);
   }
   .eyebrow .num { color: var(--ink-mute); }
+  .eyebrow .pipe { color: var(--ink-dim); }
 
   /* Typography */
-  h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; letter-spacing: -0.01em; }
-  h1 { font-size: clamp(48px, 7vw, 104px); line-height: 0.96; }
-  h2 { font-size: clamp(36px, 4.4vw, 64px); line-height: 1.02; margin-bottom: 32px; }
-  h3 { font-size: clamp(24px, 2.6vw, 36px); line-height: 1.15; margin-bottom: 16px; }
-  .italic { font-style: italic; }
-  p { margin: 0 0 1em; max-width: 65ch; }
-  p.lead { font-size: 26px; line-height: 1.4; color: var(--ink-soft); font-style: italic; max-width: 30ch; }
-  p.standfirst { font-size: 24px; line-height: 1.45; color: var(--ink-soft); }
-  .small { font-size: 16px; color: var(--ink-soft); }
+  h1, h2, h3, h4, h5 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spacing: -0.005em; }
+  h1 { font-size: clamp(56px, 8vw, 124px); line-height: 0.96; font-weight: 500; }
+  h2 { font-size: clamp(40px, 5vw, 76px); line-height: 1.02; margin-bottom: 36px; font-weight: 500; }
+  h3 { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; margin-bottom: 18px; }
+  .italic, .ital { font-style: italic; color: var(--gold); font-weight: 500; }
+  p { margin: 0 0 1em; max-width: 65ch; color: var(--ink-soft); }
+  p.lead { font-size: 28px; line-height: 1.4; color: var(--ink-soft); font-style: italic; max-width: 30ch; }
+  p.standfirst { font-size: 26px; line-height: 1.45; color: var(--ink-soft); font-weight: 400; }
+  p.standfirst em { color: var(--ink); font-style: italic; }
+  .small { font-size: 16px; color: var(--ink-mute); }
   .mono { font-family: var(--mono); }
-  .rule { height: 1px; background: var(--rule); border: 0; margin: 60px auto; max-width: 720px; }
+  .rule { height: 1px; background: var(--border); border: 0; margin: 60px auto; max-width: 760px; }
   .pullquote {
     font-style: italic;
-    font-size: clamp(28px, 3.6vw, 44px);
-    line-height: 1.25;
+    font-size: clamp(30px, 3.8vw, 48px);
+    line-height: 1.22;
     color: var(--ink);
-    border-left: 2px solid var(--accent);
-    padding-left: 32px;
-    margin: 80px 0;
+    border-left: 2px solid var(--gold);
+    padding-left: 36px;
+    margin: 84px 0;
     max-width: 28ch;
   }
   .pullquote .src {
     display: block;
     font-style: normal;
     font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-top: 18px;
+    margin-top: 22px;
   }
   .footnote {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     color: var(--ink-mute);
     text-transform: uppercase;
   }
+  .dropcap::first-letter {
+    font-family: var(--serif);
+    font-size: 5em;
+    line-height: 0.85;
+    float: left;
+    padding: 8px 14px 0 0;
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 500;
+  }
 
-  /* Hero */
+  /* Buttons (hub style) */
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    padding: 14px 22px;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+  }
+  .btn:hover { border-color: var(--gold); color: var(--gold); }
+  .btn.primary { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+  .btn.primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); color: var(--bg); }
+
+  /* ============ HERO ============ */
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 28px 80px;
+    padding: 160px 32px 100px;
   }
-  #hero .wrap { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 1280px; }
   #hero .meta {
     font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.18em;
+    font-size: 11px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    display: flex; gap: 28px; margin-bottom: 80px;
+    display: flex; gap: 28px; margin-bottom: 64px; flex-wrap: wrap;
   }
   #hero .meta span { color: var(--ink-soft); }
+  #hero .meta .dot { color: var(--gold); margin: 0 4px; }
   #hero h1 .a { display: block; }
-  #hero h1 .b { display: block; font-style: italic; color: var(--accent); }
+  #hero h1 .b { display: block; font-style: italic; color: var(--gold); }
   #hero h1 .c { display: block; }
   #hero .deck {
     margin-top: 56px;
-    max-width: 580px;
-    font-size: 22px;
-    line-height: 1.45;
+    max-width: 620px;
+    font-size: 23px;
+    line-height: 1.5;
+    font-style: italic;
     color: var(--ink-soft);
   }
   #hero .deck em { color: var(--ink); font-style: italic; }
+  #hero .ctas {
+    margin-top: 56px;
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
   #hero .byline {
     margin-top: 80px;
-    display: flex; gap: 40px; flex-wrap: wrap;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-  #hero .byline strong { color: var(--ink); font-weight: 500; display: block; margin-top: 4px; }
-  #hero .scroll {
-    margin-top: 88px;
+    display: flex; gap: 64px; flex-wrap: wrap;
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    display: flex; align-items: center; gap: 14px;
+  }
+  #hero .byline strong { color: var(--ink); font-weight: 500; display: block; margin-top: 6px; font-family: var(--serif); font-size: 17px; letter-spacing: 0; text-transform: none; }
+  #hero .byline strong.it { font-style: italic; color: var(--gold-soft); }
+  #hero .scroll {
+    margin-top: 96px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; align-items: center; gap: 16px;
   }
   #hero .scroll::after {
-    content: ""; width: 60px; height: 1px; background: var(--ink-mute);
+    content: ""; width: 80px; height: 1px; background: var(--gold-dim);
   }
 
-  /* Scenario — annotated essay */
-  .essay-card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 64px 72px;
+  /* Card pattern (matches hub) */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
     position: relative;
-    box-shadow: 0 30px 80px -50px rgba(28,24,21,.25);
   }
-  .essay-card .corner {
-    position: absolute; top: 16px; right: 24px;
+  .card .head-rule {
+    position: absolute; top: -1px; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+  }
+  .card .head-rule.teal { background: var(--teal); }
+  .card .head-rule.rust { background: var(--rust); }
+  .card .stamp {
+    display: inline-flex; align-items: center; gap: 14px;
     font-family: var(--mono);
     font-size: 10.5px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .card .stamp .live {
+    color: var(--teal-soft);
+    border: 1px solid var(--teal);
+    padding: 4px 9px;
+    font-size: 10px;
+  }
+  .card .stamp .ord {
+    color: var(--ink-mute);
+  }
+  .card .stamp .cat {
+    color: var(--ink-soft);
+  }
+
+  /* ============ SCENARIO ============ */
+  .essay-card {
+    padding: 60px 72px;
+    box-shadow: 0 30px 80px -50px rgba(0,0,0,.5);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .essay-card .head-rule {
+    position: absolute; top: -1px; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+  }
+  .essay-card .corner {
+    position: absolute; top: 18px; right: 28px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
     color: var(--ink-mute);
     text-transform: uppercase;
   }
   .essay-card h4 {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: 28px;
+    font-size: 32px;
     margin: 0 0 6px;
+    color: var(--ink);
   }
   .essay-card .sub {
     font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
-  .essay-card .prose { font-size: 18px; line-height: 1.7; color: var(--ink); }
-  .essay-card .prose p { margin: 0 0 16px; }
+  .essay-card .prose { font-size: 18.5px; line-height: 1.75; color: var(--ink-soft); }
+  .essay-card .prose p { margin: 0 0 18px; max-width: none; color: var(--ink-soft); }
   .ann {
-    background: linear-gradient(180deg, transparent 60%, rgba(176,74,44,.22) 60%);
+    background: linear-gradient(180deg, transparent 65%, rgba(193,154,90,.22) 65%);
     cursor: help;
     position: relative;
     transition: background .2s;
+    color: var(--ink);
   }
-  .ann.active { background: rgba(176,74,44,.28); }
+  .ann.active { background: rgba(193,154,90,.32); color: var(--ink); }
   .annotations {
-    margin-top: 28px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-top: 32px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   }
   .ann-card {
-    border: 1px solid var(--rule);
-    padding: 18px 22px;
-    background: rgba(247,241,225,.5);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 22px 26px;
     cursor: pointer;
     transition: all .2s;
   }
   .ann-card:hover, .ann-card.active {
-    background: var(--paper);
-    border-color: var(--accent);
+    background: var(--surface-2);
+    border-color: var(--gold);
   }
   .ann-card .tag {
     font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 500;
   }
-  .ann-card .body { font-size: 16px; line-height: 1.4; color: var(--ink-soft); }
+  .ann-card .body { font-size: 16px; line-height: 1.45; color: var(--ink-soft); }
+  .ann-card .body em { color: var(--ink); font-style: italic; }
   .verdict {
-    margin-top: 56px;
+    margin-top: 60px;
     text-align: center;
     font-style: italic;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1.35;
     color: var(--ink);
   }
-  .verdict .accent { color: var(--accent); }
+  .verdict .accent { color: var(--gold); }
 
-  /* Three terms */
-  .terms { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
+  /* ============ THREE TERMS ============ */
+  .terms { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 48px; }
   .term {
-    padding: 44px 0;
-    border-top: 1px solid var(--rule);
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 56px;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
     align-items: start;
   }
-  .term:last-child { border-bottom: 1px solid var(--rule); }
+  .term:last-child { border-bottom: 1px solid var(--border); }
   .term .label {
     font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.16em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    padding-top: 10px;
+    padding-top: 12px;
   }
-  .term .label .num { display: block; color: var(--accent); margin-bottom: 8px; font-size: 11px; }
+  .term .label .num { display: block; color: var(--gold); margin-bottom: 10px; font-size: 10px; }
   .term .term-name {
-    font-size: 36px;
+    font-size: 42px;
     font-style: italic;
     line-height: 1.05;
-    margin-bottom: 14px;
-    color: var(--ink);
+    margin-bottom: 18px;
+    color: var(--gold);
+    font-weight: 500;
   }
-  .term .term-def { font-size: 19px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+  .term .term-def { font-size: 20px; line-height: 1.55; color: var(--ink-soft); margin: 0; max-width: 60ch; }
+  .term .term-def em { color: var(--ink); font-style: italic; }
   .term .term-ex {
-    margin-top: 14px;
+    margin-top: 16px;
     font-size: 15px;
     line-height: 1.5;
     color: var(--ink-mute);
     font-style: italic;
-    border-left: 1px solid var(--rule);
-    padding-left: 16px;
+    border-left: 1px solid var(--gold-dim);
+    padding-left: 18px;
   }
 
-  /* Timeline (Ong's stages) */
-  #timeline { background: var(--bg-deep); }
+  /* ============ TIMELINE / ONG ============ */
+  #timeline { background: var(--bg-2); }
   .stages {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    margin-top: 60px;
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
+    margin-top: 64px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   .stage {
-    padding: 36px 28px 48px;
-    border-right: 1px solid var(--rule);
+    padding: 40px 28px 52px;
+    border-right: 1px solid var(--border-soft);
     position: relative;
     cursor: pointer;
     transition: background .25s;
+    background: transparent;
   }
   .stage:last-child { border-right: 0; }
-  .stage:hover, .stage.active { background: var(--paper); }
-  .stage.tertiary { background: rgba(176,74,44,.06); }
-  .stage.tertiary:hover, .stage.tertiary.active { background: rgba(176,74,44,.12); }
+  .stage:hover, .stage.active { background: var(--surface); }
+  .stage.tertiary { background: rgba(193,154,90,.04); }
+  .stage.tertiary:hover, .stage.tertiary.active { background: rgba(193,154,90,.09); }
   .stage .roman {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     color: var(--ink-mute);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   .stage h4 {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: 26px;
-    margin: 0 0 8px;
+    font-size: 28px;
+    margin: 0 0 10px;
     font-style: italic;
+    color: var(--ink);
   }
-  .stage.tertiary h4 { color: var(--accent); }
+  .stage.tertiary h4 { color: var(--gold); }
   .stage .era {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
     color: var(--ink-mute);
     text-transform: uppercase;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
   }
   .stage .producer {
-    font-size: 15px; line-height: 1.5; color: var(--ink-soft);
+    font-size: 15.5px; line-height: 1.55; color: var(--ink-soft);
+    margin: 0;
   }
   .stage .producer strong { color: var(--ink); font-weight: 500; }
   .stage .marker {
     position: absolute; top: -7px; left: 28px;
     width: 13px; height: 13px;
-    background: var(--bg-deep);
-    border: 1px solid var(--ink);
+    background: var(--bg-2);
+    border: 1px solid var(--ink-mute);
     border-radius: 50%;
   }
-  .stage.tertiary .marker { background: var(--accent); border-color: var(--accent); }
+  .stage.tertiary .marker { background: var(--gold); border-color: var(--gold); }
   .timeline-detail {
-    margin-top: 48px;
-    padding: 36px 40px;
-    background: var(--paper);
-    border: 1px solid var(--rule);
+    margin-top: 56px;
+    padding: 40px 44px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
     min-height: 200px;
     transition: opacity .2s;
   }
   .timeline-detail .heading {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
+    color: var(--gold);
+    margin-bottom: 18px;
+    font-weight: 500;
   }
   .timeline-detail h5 {
-    font-size: 30px;
-    font-weight: 400;
-    margin: 0 0 18px;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 20px;
     font-style: italic;
+    color: var(--ink);
   }
-  .timeline-detail .body { font-size: 18px; line-height: 1.6; color: var(--ink-soft); margin: 0; max-width: 70ch; }
+  .timeline-detail .body { font-size: 18px; line-height: 1.6; color: var(--ink-soft); margin: 0; max-width: 72ch; }
+  .timeline-detail .body strong { color: var(--ink); font-weight: 500; }
 
-  /* Four characteristics */
+  /* ============ FOUR CHARACTERISTICS ============ */
   .characteristics {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-    margin-top: 56px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 64px;
   }
   .char {
-    background: var(--bg);
-    padding: 56px 48px;
+    background: var(--surface);
+    padding: 60px 52px;
     position: relative;
     transition: background .25s;
   }
-  .char:hover { background: var(--paper); }
+  .char:hover { background: var(--surface-2); }
+  .char::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: var(--gold-dim);
+    opacity: 0;
+    transition: opacity .25s;
+  }
+  .char:hover::before { opacity: 1; }
   .char .glyph {
     font-family: var(--serif);
-    font-size: 84px;
+    font-size: 96px;
     line-height: 1;
     font-style: italic;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 32px;
-    font-weight: 300;
+    font-weight: 500;
   }
   .char h4 {
     font-family: var(--serif);
-    font-size: 30px;
-    font-weight: 400;
-    margin: 0 0 14px;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 16px;
+    color: var(--ink);
   }
-  .char .summary { font-size: 17px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 24px; }
+  .char .summary { font-size: 17.5px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 26px; }
+  .char .summary em { color: var(--ink); font-style: italic; }
   .char .example {
     font-style: italic;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--ink-mute);
-    border-top: 1px solid var(--rule);
-    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
     margin: 0;
   }
+  .char .example em { color: var(--ink-soft); }
   .char .num {
     position: absolute; top: 24px; right: 32px;
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     color: var(--ink-mute);
   }
 
-  /* Kapur 2x2 matrix */
-  #kapur { background: var(--bg-deep); }
+  /* ============ KAPUR 2x2 MATRIX ============ */
+  #kapur { background: var(--bg-2); }
   .matrix-wrap {
     display: grid;
-    grid-template-columns: 60px 1fr 60px 1fr;
+    grid-template-columns: 64px 1fr 64px 1fr;
     grid-template-rows: 60px 1fr 1fr 60px;
     gap: 0;
-    margin-top: 64px;
-    max-width: 900px;
+    margin-top: 72px;
+    max-width: 960px;
     margin-left: auto; margin-right: auto;
   }
   .matrix-axis {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-mute);
     display: flex; align-items: center; justify-content: center;
   }
-  .matrix-axis.left { writing-mode: vertical-rl; transform: rotate(180deg); grid-row: 2 / 4; grid-column: 1; }
-  .matrix-axis.top-l { grid-row: 1; grid-column: 2; }
-  .matrix-axis.top-r { grid-row: 1; grid-column: 4; }
-  .matrix-axis.bot-l { grid-row: 4; grid-column: 2; }
-  .matrix-axis.bot-r { grid-row: 4; grid-column: 4; }
-  .matrix-axis.title-x { grid-row: 1; grid-column: 2 / 5; justify-content: flex-start; padding-left: 0; color: var(--accent); font-weight: 500; }
-  .matrix-spacer { grid-row: 2 / 4; grid-column: 3; width: 1px; background: var(--ink); }
-  .matrix-row-rule { grid-row: 3; grid-column: 2 / 5; height: 1px; background: var(--ink); align-self: start; }
+  .matrix-axis.left { writing-mode: vertical-rl; transform: rotate(180deg); grid-row: 2 / 4; grid-column: 1; color: var(--gold); font-weight: 500; }
+  .matrix-axis.title-x { grid-row: 1; grid-column: 2 / 5; justify-content: flex-start; padding-left: 0; color: var(--gold); font-weight: 500; }
+  .matrix-spacer { grid-row: 2 / 4; grid-column: 3; width: 1px; background: var(--border); }
+  .matrix-row-rule { grid-row: 3; grid-column: 2 / 5; height: 1px; background: var(--border); align-self: start; }
   .cell {
-    padding: 32px 36px;
+    padding: 36px 40px;
     cursor: pointer;
-    transition: background .25s;
-    background: var(--paper);
+    transition: all .25s;
+    background: var(--surface);
+    border: 1px solid transparent;
     display: flex; flex-direction: column; justify-content: space-between;
-    min-height: 200px;
+    min-height: 220px;
     position: relative;
   }
-  .cell:hover { background: var(--bg); }
+  .cell:hover {
+    background: var(--surface-2);
+    border-color: var(--border);
+  }
   .cell .ctitle {
     font-family: var(--serif);
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 500;
     font-style: italic;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: var(--ink);
   }
   .cell .cmono {
     font-family: var(--mono);
     font-size: 10.5px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-bottom: 18px;
+    margin-bottom: 22px;
   }
-  .cell .cbody { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+  .cell .cbody { font-size: 15.5px; line-height: 1.5; color: var(--ink-soft); }
+  .cell .cbody em { color: var(--ink); font-style: italic; }
+  .cell .cbody strong { color: var(--gold); font-weight: 500; }
   .cell.danger {
-    background: rgba(176,74,44,.08);
+    background: rgba(176,107,71,.06);
   }
-  .cell.danger:hover { background: rgba(176,74,44,.16); }
-  .cell.danger .ctitle { color: var(--accent); }
-  .cell.danger .cmono { color: var(--accent); }
+  .cell.danger:hover { background: rgba(176,107,71,.12); border-color: var(--rust); }
+  .cell.danger .ctitle { color: var(--rust); }
+  .cell.danger .cmono { color: var(--rust); }
   .cell .stamp {
-    position: absolute; top: 18px; right: 22px;
+    position: absolute; top: 20px; right: 24px;
     font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     color: var(--ink-mute);
   }
 
-  /* GPS vs map */
+  /* ============ GPS VS MAP ============ */
   .duo {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    margin-top: 56px;
-    border: 1px solid var(--rule);
+    gap: 1px;
+    margin-top: 64px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
-  .duo > div { padding: 56px 48px; position: relative; }
-  .duo .left { border-right: 1px solid var(--rule); background: var(--paper); }
-  .duo .right { background: var(--bg); }
+  .duo > div { padding: 60px 52px; position: relative; background: var(--surface); }
+  .duo .right { background: rgba(176,107,71,.05); }
   .duo .label {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
+  .duo .left .label .dot { color: var(--teal); }
+  .duo .right .label .dot { color: var(--rust); }
   .duo .heading {
     font-family: var(--serif);
-    font-size: 30px;
+    font-size: 34px;
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    color: var(--ink);
+    font-weight: 500;
   }
-  .duo .right .heading { color: var(--accent); }
-  .duo p { font-size: 17px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 14px; max-width: 36ch; }
+  .duo .right .heading { color: var(--rust); }
+  .duo p { font-size: 17px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 14px; max-width: 38ch; }
   .duo .stage-vis {
     height: 240px;
-    margin: 28px 0;
+    margin: 30px 0;
     background:
-      linear-gradient(135deg, transparent 49.5%, var(--rule) 49.5%, var(--rule) 50.5%, transparent 50.5%),
-      linear-gradient(45deg, transparent 49.5%, var(--rule) 49.5%, var(--rule) 50.5%, transparent 50.5%);
+      linear-gradient(135deg, transparent 49.5%, var(--border) 49.5%, var(--border) 50.5%, transparent 50.5%),
+      linear-gradient(45deg, transparent 49.5%, var(--border) 49.5%, var(--border) 50.5%, transparent 50.5%);
     background-size: 28px 28px;
-    border: 1px dashed var(--rule);
+    border: 1px dashed var(--border);
     position: relative;
     overflow: hidden;
   }
-  .duo .stage-vis.gps {
+  .duo .stage-vis.map {
     background:
-      linear-gradient(to right, transparent, transparent 24%, var(--accent) 24%, var(--accent) 25%, transparent 25%, transparent 74%, var(--accent) 74%, var(--accent) 75%, transparent 75%),
-      var(--paper);
-    border: 1px dashed var(--rule);
+      radial-gradient(ellipse 40% 18% at 30% 35%, transparent 50%, rgba(94,138,130,.4) 50%, rgba(94,138,130,.4) 51%, transparent 51%),
+      radial-gradient(ellipse 50% 22% at 35% 45%, transparent 50%, rgba(94,138,130,.45) 50%, rgba(94,138,130,.45) 51%, transparent 51%),
+      radial-gradient(ellipse 60% 26% at 40% 55%, transparent 50%, rgba(94,138,130,.5) 50%, rgba(94,138,130,.5) 51%, transparent 51%),
+      radial-gradient(ellipse 70% 30% at 45% 65%, transparent 50%, rgba(94,138,130,.55) 50%, rgba(94,138,130,.55) 51%, transparent 51%),
+      var(--surface-2);
+    border: 1px dashed var(--border);
+  }
+  .duo .stage-vis.map::before {
+    content: "A";
+    position: absolute; left: 12%; top: 70%; font-family: var(--mono); font-size: 11px; color: var(--gold-soft);
+  }
+  .duo .stage-vis.map::after {
+    content: "B";
+    position: absolute; right: 14%; top: 22%; font-family: var(--mono); font-size: 11px; color: var(--gold-soft);
+  }
+  .duo .stage-vis.gps {
+    background: var(--surface-2);
+    border: 1px dashed var(--border);
   }
   .duo .stage-vis.gps::before {
     content: "A";
-    position: absolute; left: 18%; top: 50%; transform: translateY(-50%);
+    position: absolute; left: 16%; top: 50%; transform: translateY(-50%);
     font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
   }
   .duo .stage-vis.gps::after {
     content: "→ destination";
-    position: absolute; right: 18%; top: 50%; transform: translate(50%, -50%);
-    font-family: var(--mono); font-size: 11px; color: var(--accent);
+    position: absolute; right: 16%; top: 50%; transform: translate(0, -50%);
+    font-family: var(--mono); font-size: 11px; color: var(--rust);
   }
   .duo .stage-vis.gps .line {
-    position: absolute; left: 25%; right: 25%; top: 50%; height: 1px;
-    background: repeating-linear-gradient(to right, var(--accent) 0 6px, transparent 6px 10px);
-  }
-  .duo .stage-vis.map {
-    background:
-      radial-gradient(ellipse 40% 18% at 30% 35%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
-      radial-gradient(ellipse 50% 22% at 35% 45%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
-      radial-gradient(ellipse 60% 26% at 40% 55%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
-      radial-gradient(ellipse 70% 30% at 45% 65%, transparent 50%, var(--cool-soft) 50%, var(--cool-soft) 51%, transparent 51%),
-      var(--bg);
-    border: 1px dashed var(--rule);
-  }
-  .duo .stage-vis.map::before {
-    content: "A";
-    position: absolute; left: 12%; top: 70%; font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
-  }
-  .duo .stage-vis.map::after {
-    content: "B";
-    position: absolute; right: 14%; top: 22%; font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+    position: absolute; left: 22%; right: 30%; top: 50%; height: 1px;
+    background: repeating-linear-gradient(to right, var(--rust) 0 6px, transparent 6px 10px);
   }
 
-  /* Pedagogical Friction Framework */
-  #framework { background: #1c1815; color: #e8dfc7; }
-  #framework .eyebrow { color: var(--accent-soft); }
-  #framework .eyebrow::before { background: var(--accent-soft); }
-  #framework h2 { color: #f1ead9; }
-  #framework p.standfirst { color: #c6bea8; }
-  .friction-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: #2a241e;
-    border: 1px solid #2a241e;
-    margin-top: 64px;
-  }
-  .fdim {
-    background: #221d18;
-    padding: 56px 48px;
-    cursor: pointer;
-    transition: background .3s;
-    position: relative;
-  }
-  .fdim:hover, .fdim.active { background: #2a241e; }
-  .fdim .ord {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--accent-soft);
-    margin-bottom: 24px;
-  }
-  .fdim h4 {
-    font-family: var(--serif);
-    font-size: 36px;
-    font-weight: 400;
-    font-style: italic;
-    margin: 0 0 8px;
-    color: #f1ead9;
-  }
-  .fdim .ko {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #8a8278;
-    margin-bottom: 24px;
-  }
-  .fdim .desc { font-size: 17px; line-height: 1.55; color: #c6bea8; margin: 0 0 24px; max-width: 42ch; }
-  .fdim .threat {
-    font-style: italic;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #8a8278;
-    padding-top: 20px;
-    border-top: 1px solid #2a241e;
-  }
-  .fdim .threat strong { color: var(--accent-soft); font-style: normal; font-weight: 500; }
-  .fdim .design {
-    margin-top: 16px;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #c6bea8;
-  }
-  .fdim .design .h {
-    display: block;
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent-soft);
-    margin-bottom: 10px;
-  }
-
-  /* Equity slider */
-  #equity .equity-card {
-    margin-top: 56px;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 48px 52px;
-  }
-  .equity-card h4 {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 400;
-    font-style: italic;
-    margin: 0 0 28px;
-  }
-  .equity-pair {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
-    margin-bottom: 28px;
-  }
-  .equity-pair .row {
-    border: 1px solid var(--rule);
-    padding: 24px 28px;
-  }
-  .equity-pair .row.good { border-color: var(--cool); }
-  .equity-pair .row.bad { border-color: var(--accent); }
-  .equity-pair .row .tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .equity-pair .row.good .tag { color: var(--cool); }
-  .equity-pair .row.bad .tag { color: var(--accent); }
-  .equity-pair .row h5 {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 500;
-    margin: 0 0 10px;
-  }
-  .equity-pair .row p { font-size: 16px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
-
-  /* Live demo — typing */
-  #demo { background: var(--bg-deep); }
+  /* ============ LIVE DEMO (TYPING) ============ */
+  #demo { background: var(--bg-2); }
   .stream-wrap {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
-    margin-top: 56px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    margin-top: 64px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
   .stream {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 32px 36px;
-    min-height: 360px;
+    background: var(--surface);
+    padding: 36px 40px;
+    min-height: 380px;
     position: relative;
     font-family: var(--serif);
   }
@@ -978,133 +726,274 @@
     margin-bottom: 6px;
     display: flex; justify-content: space-between;
   }
-  .stream .head .who { color: var(--accent); }
-  .stream.b .head .who { color: var(--cool); }
+  .stream .head .who { color: var(--gold); font-weight: 500; }
+  .stream.b .head .who { color: var(--teal-soft); }
   .stream .title {
     font-style: italic;
-    font-size: 18px;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 14px;
+    font-size: 19px;
+    color: var(--ink-mute);
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
   }
-  .stream .text { font-size: 17px; line-height: 1.6; color: var(--ink); min-height: 200px; }
+  .stream .text { font-size: 17.5px; line-height: 1.65; color: var(--ink); min-height: 220px; }
   .stream .text .cross { text-decoration: line-through; color: var(--ink-mute); margin-right: 6px; }
   .stream .text .ins { color: var(--ink); }
-  .stream .text .pause { display: inline-block; }
   .stream .meta {
     margin-top: 24px;
     padding-top: 16px;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--border);
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
     color: var(--ink-mute);
     display: flex; justify-content: space-between;
   }
   .cursor {
     display: inline-block; width: 7px; height: 18px;
-    background: var(--ink);
+    background: var(--gold);
     vertical-align: text-bottom;
     margin-left: 2px;
     animation: blink 1s steps(2) infinite;
   }
   @keyframes blink { 50% { opacity: 0; } }
   .demo-controls {
-    margin-top: 24px;
+    margin-top: 28px;
     display: flex; gap: 14px; justify-content: center;
   }
-  .btn {
+
+  /* ============ FRAMEWORK ============ */
+  #framework { background: var(--bg); }
+  .friction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 72px;
+  }
+  .fdim {
+    background: var(--surface);
+    padding: 60px 52px;
+    cursor: pointer;
+    transition: background .3s;
+    position: relative;
+  }
+  .fdim::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s;
+  }
+  .fdim:hover, .fdim.active { background: var(--surface-2); }
+  .fdim:hover::before, .fdim.active::before { transform: scaleX(1); }
+  .fdim .ord {
     font-family: var(--mono);
     font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 26px;
+    font-weight: 500;
+  }
+  .fdim h4 {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 500;
+    font-style: italic;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .fdim .ko {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 26px;
+  }
+  .fdim .desc { font-size: 17.5px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 26px; max-width: 42ch; }
+  .fdim .desc em { color: var(--ink); font-style: italic; }
+  .fdim .threat {
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--ink-mute);
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+  }
+  .fdim .threat strong { color: var(--gold); font-style: normal; font-weight: 500; }
+  .fdim .threat em { color: var(--ink-soft); }
+  .fdim .design {
+    margin-top: 18px;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .fdim .design .h {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    background: transparent;
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    padding: 12px 22px;
-    cursor: pointer;
-    transition: all .2s;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-weight: 500;
   }
-  .btn:hover { background: var(--ink); color: var(--paper); }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--paper); }
-  .btn.primary:hover { background: var(--ink); border-color: var(--ink); }
 
-  /* Closing */
+  /* ============ EQUITY ============ */
+  .equity-card {
+    margin-top: 64px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 56px 56px;
+  }
+  .equity-card h4 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 500;
+    font-style: italic;
+    margin: 0 0 32px;
+    color: var(--ink);
+  }
+  .equity-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    margin-bottom: 32px;
+  }
+  .equity-pair .row {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    position: relative;
+  }
+  .equity-pair .row::before {
+    content: "";
+    position: absolute; top: -1px; left: 0; right: 0;
+    height: 2px;
+  }
+  .equity-pair .row.good::before { background: var(--teal); }
+  .equity-pair .row.bad::before { background: var(--rust); }
+  .equity-pair .row .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .equity-pair .row.good .tag { color: var(--teal-soft); }
+  .equity-pair .row.bad .tag { color: var(--rust); }
+  .equity-pair .row h5 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .equity-pair .row p { font-size: 16px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+  .equity-pair .row p em { color: var(--ink); font-style: italic; }
+
+  /* ============ CLOSING ============ */
   #closing { background: var(--bg); padding-bottom: 200px; }
   .citation {
     margin-top: 80px;
-    border: 1px solid var(--rule);
-    padding: 40px 44px;
-    background: var(--paper);
-    max-width: 720px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 44px 48px;
+    max-width: 760px;
     margin-left: auto; margin-right: auto;
   }
   .citation .tag {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
+    color: var(--gold);
+    margin-bottom: 18px;
+    font-weight: 500;
   }
   .citation .cite {
     font-family: var(--serif);
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--ink-soft);
     font-style: italic;
   }
   .citation .cite strong { color: var(--ink); font-style: normal; font-weight: 500; }
 
-  /* Content renders by default. No timeline-driven reveal — preview environments
-     can pin animations/transitions at their "from" state, and a long-form article
-     must not depend on motion for visibility. */
-  .fade { opacity: 1; transform: none; }
+  /* Hub link card */
+  .hub-link {
+    margin-top: 64px;
+    max-width: 720px;
+    margin-left: auto; margin-right: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px 36px;
+    text-align: center;
+  }
+  .hub-link .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .hub-link h5 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  .hub-link p { font-size: 15px; color: var(--ink-mute); margin: 0 0 18px; max-width: none; }
 
-  /* Section header inside dark */
-  .section-head { margin-bottom: 32px; }
-  .section-head h2 { margin-bottom: 24px; }
+  /* Section header */
+  .fade { opacity: 1; transform: none; }
 
   /* Responsive */
   @media (max-width: 900px) {
     body { font-size: 18px; }
-    section { padding: 80px 22px; }
-    .essay-card { padding: 36px 28px; }
+    section { padding: 88px 22px; }
+    .essay-card { padding: 40px 32px; }
     .annotations { grid-template-columns: 1fr; }
-    .term { grid-template-columns: 1fr; gap: 14px; }
+    .term { grid-template-columns: 1fr; gap: 16px; }
     .stages { grid-template-columns: 1fr; }
-    .stage { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .stage { border-right: 0; border-bottom: 1px solid var(--border); }
     .characteristics { grid-template-columns: 1fr; }
     .matrix-wrap { grid-template-columns: 40px 1fr; grid-template-rows: auto; }
-    .matrix-axis.top-l, .matrix-axis.top-r, .matrix-axis.bot-l, .matrix-axis.bot-r, .matrix-axis.title-x, .matrix-spacer, .matrix-row-rule { display: none; }
+    .matrix-axis.title-x, .matrix-spacer, .matrix-row-rule { display: none; }
     .cell { grid-column: 2 !important; }
     .duo { grid-template-columns: 1fr; }
-    .duo .left { border-right: 0; border-bottom: 1px solid var(--rule); }
     .friction-grid { grid-template-columns: 1fr; }
     .equity-pair { grid-template-columns: 1fr; }
     .stream-wrap { grid-template-columns: 1fr; }
     .topbar .nav { display: none; }
+    .topbar .crumb { display: none; }
   }
 </style>
 </head>
 <body>
 
-
-
 <div class="topbar">
   <div class="lhs">
-    <span class="mark">i.e.</span>
-    <span>Inquiry in Education · Vol. 18 · Iss. 1 · Art. 4</span>
+    <span class="brand">M.M.</span>
+    <span class="crumb">Writing <em>Companions</em></span>
   </div>
   <div class="nav">
-    <a href="#scenario">The Scenario</a>
-    <a href="#terms">Terms</a>
+    <a href="#scenario">Scenario</a>
     <a href="#timeline">Stages</a>
-    <a href="#kapur">The Trap</a>
+    <a href="#kapur">Trap</a>
     <a href="#framework">Framework</a>
+    <a href="https://minerclass.github.io/writing-sites-hub/" target="_blank" rel="noopener">↩ Hub</a>
   </div>
-  <div class="progress" id="prog"></div>
+  <div class="progress" id="prog" style="width: 0%;"></div>
 </div>
 
 <main>
@@ -1113,9 +1002,9 @@
 <section id="hero">
   <div class="wrap">
     <div class="meta fade">
-      <span>A digital companion to</span>
-      <span>Miner, M. J. (2025)</span>
-      <span>National Louis University</span>
+      <span>i.e.: Inquiry in Education</span><span class="dot">·</span>
+      <span>Vol. 18 · Iss. 1 · Art. 4</span><span class="dot">·</span>
+      <span>2025</span>
     </div>
 
     <h1 class="fade">
@@ -1129,10 +1018,16 @@
       <em>What if learning never happened at all?</em>
     </p>
 
+    <div class="ctas fade">
+      <a href="#scenario" class="btn primary">Enter the companion</a>
+      <a href="#framework" class="btn">Jump to the framework</a>
+      <a href="https://minerclass.github.io/writing-sites-hub/" target="_blank" rel="noopener" class="btn">Return to hub</a>
+    </div>
+
     <div class="byline fade">
       <div>Author<strong>Micah J. Miner</strong></div>
-      <div>Subject<strong>Tertiary Algorithmicity</strong></div>
-      <div>Frame<strong>Pedagogical Friction</strong></div>
+      <div>Subject<strong class="it">Tertiary Algorithmicity</strong></div>
+      <div>Frame<strong class="it">Pedagogical Friction</strong></div>
       <div>Reading time<strong>≈ 18 minutes</strong></div>
     </div>
 
@@ -1143,13 +1038,19 @@
 <!-- ============ SCENARIO ============ -->
 <section id="scenario">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 01</span> The scenario</div>
-    <h2 class="fade italic">An essay arrives.<br>It performs at proficient or advanced.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 01</span>
+      <span class="pipe">/</span>
+      <span>The scenario</span>
+    </div>
+    <h2 class="fade">An essay arrives.<br><span class="ital">It performs at proficient or advanced.</span></h2>
     <p class="standfirst fade">An eighth-grader submits a five-paragraph essay on the causes of the American Civil War. By every rubric metric the teacher designed, the essay performs at proficient or advanced. <em>The teacher suspects most of the text was generated.</em></p>
-    <p class="standfirst fade" style="margin-top:20px;">Hover the highlighted passages — or tap a card below — to see what the rubric measures, and what it misses.</p>
+    <p class="standfirst fade" style="margin-top:22px;">Hover the highlighted passages — or tap a card below — to see what the rubric measures, and what it misses.</p>
 
-    <div class="essay-card fade" style="margin-top:64px;">
-      <span class="corner">Student work · Submission #4128</span>
+    <div class="essay-card fade" style="margin-top:72px;">
+      <span class="head-rule"></span>
+      <span class="corner">Submission #4128 · Grade 8 history</span>
       <h4>The Causes of the American Civil War</h4>
       <div class="sub">Grade 8 · U.S. History · Mr. Castellanos</div>
       <div class="prose">
@@ -1160,30 +1061,30 @@
       </div>
     </div>
 
-    <div class="annotations fade" style="margin-top:28px;">
+    <div class="annotations fade" style="margin-top:32px;">
       <div class="ann-card" data-ann="1">
-        <div class="tag">Rubric: thesis clarity ✓</div>
+        <div class="tag">Rubric · thesis clarity ✓</div>
         <div class="body">The opening names three causal categories. It scores well. But it could have come from any source — including one that has never thought about the war.</div>
       </div>
       <div class="ann-card" data-ann="2">
-        <div class="tag">Rubric: topic sentence ✓</div>
+        <div class="tag">Rubric · topic sentence ✓</div>
         <div class="body">Structurally textbook-perfect. No struggle to <em>find</em> the framing — which means no productive cognitive work has been externalized into language.</div>
       </div>
       <div class="ann-card" data-ann="3">
-        <div class="tag">Rubric: evidence ✓</div>
+        <div class="tag">Rubric · evidence ✓</div>
         <div class="body">Three correct historical references in a single sentence. Yet there's no encounter with which event mattered most, or why.</div>
       </div>
       <div class="ann-card" data-ann="4">
-        <div class="tag">Rubric: conclusion ✓</div>
+        <div class="tag">Rubric · conclusion ✓</div>
         <div class="body">Returns to the thesis with a gesture toward inevitability. Reads as wisdom. But "inevitable" can paper over any uncertainty the writer never had to face.</div>
       </div>
     </div>
 
-    <p class="verdict fade" style="margin-top:64px;">
+    <p class="verdict fade" style="margin-top:72px;">
       The essay exists.<br><span class="accent">The learning has not occurred.</span>
     </p>
-    <p class="small fade" style="text-align:center;margin-top:18px;color:var(--ink-mute);">
-      Miner names this <span class="mono" style="color:var(--accent);">cognitive bypass</span>: the symbolic output of an assignment is produced<br>without the cognitive work the assignment was designed to require.
+    <p class="small fade" style="text-align:center;margin-top:22px;color:var(--ink-mute);">
+      Miner names this <span class="mono" style="color:var(--gold);font-size:13px;letter-spacing:.16em;text-transform:uppercase;">cognitive bypass</span>: the symbolic output of an assignment is produced<br>without the cognitive work the assignment was designed to require.
     </p>
   </div>
 </section>
@@ -1191,8 +1092,13 @@
 <!-- ============ THREE TERMS ============ -->
 <section id="terms">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 02</span> Three terms doing the work</div>
-    <h2 class="fade italic">Before the argument can be made, the vocabulary has to be precise.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 02</span>
+      <span class="pipe">/</span>
+      <span>Three terms doing the work</span>
+    </div>
+    <h2 class="fade">Before the argument can be made,<br><span class="ital">the vocabulary has to be precise.</span></h2>
     <p class="standfirst fade">Miner asks the reader to hold three terms in technical senses that differ from everyday usage. Each does substantive work in what follows.</p>
 
     <div class="terms fade">
@@ -1227,8 +1133,13 @@
 <!-- ============ TIMELINE / ONG ============ -->
 <section id="timeline">
   <div class="wrap">
-    <div class="eyebrow fade"><span class="num">§ 03</span> A media ecology lens</div>
-    <h2 class="fade italic">Walter Ong named three stages of how humans produce symbols.<br>This is the fourth.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 03</span>
+      <span class="pipe">/</span>
+      <span>A media ecology lens</span>
+    </div>
+    <h2 class="fade">Walter Ong named three stages of how humans produce symbols.<br><span class="ital">This is the fourth.</span></h2>
     <p class="standfirst fade col-wide" style="margin-left:0;">In every prior stage the human being remained the source. Tertiary algorithmicity names a condition in which, <em>for the first time</em>, the prevailing communication technology actively generates symbolic content on the human's behalf.</p>
 
     <div class="stages fade">
@@ -1253,7 +1164,7 @@
         <h4>Secondary orality</h4>
         <p class="producer"><strong>Producer:</strong> the speaking human, broadcast. Electronic media reintroduces oral immediacy into cultures that have already internalized literate patterns of thought.</p>
       </div>
-      <div class="stage tertiary" data-stage="3">
+      <div class="stage tertiary active" data-stage="3">
         <span class="marker"></span>
         <div class="roman">IV.</div>
         <div class="era">November 2022 →</div>
@@ -1262,19 +1173,23 @@
       </div>
     </div>
 
-    <div class="timeline-detail fade" id="timeline-detail">
-      <div class="heading">The fourth stage — what's different</div>
-      <h5>For the first time, the medium becomes the maker.</h5>
-      <p class="body">In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. <strong style="color:var(--ink);">In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels.</p>
-    </div>
+    <div class="timeline-detail fade" id="timeline-detail" style="opacity: 1;">
+        <div class="heading">The fourth stage — what's different</div>
+        <h5>For the first time, the medium becomes the maker.</h5>
+        <p class="body">In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. <strong>In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels.</p></div>
   </div>
 </section>
 
 <!-- ============ FOUR CHARACTERISTICS ============ -->
 <section id="characteristics">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 04</span> Four characteristics that make this stage distinctive</div>
-    <h2 class="fade italic">Each carries a direct implication for school.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 04</span>
+      <span class="pipe">/</span>
+      <span>Four characteristics that make this stage distinctive</span>
+    </div>
+    <h2 class="fade">Each carries a <span class="ital">direct implication</span> for school.</h2>
 
     <div class="characteristics fade">
       <div class="char">
@@ -1312,16 +1227,18 @@
 <!-- ============ KAPUR 2x2 ============ -->
 <section id="kapur">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 05</span> The trap, in two dimensions</div>
-    <h2 class="fade italic">Performance is not learning.<br>Manu Kapur's matrix makes the gap visible.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 05</span>
+      <span class="pipe">/</span>
+      <span>The trap, in two dimensions</span>
+    </div>
+    <h2 class="fade">Performance is not learning.<br><span class="ital">Manu Kapur's matrix makes the gap visible.</span></h2>
     <p class="standfirst fade">Productive failure research arranges four relationships between performance and learning. Three of the quadrants have long been familiar in schools. Generative AI dramatically expands the fourth.</p>
 
     <div class="matrix-wrap fade">
       <div class="matrix-axis title-x">Performance →</div>
       <div class="matrix-axis left">← Learning</div>
-
-      <div class="matrix-axis top-l"></div>
-      <div class="matrix-axis top-r"></div>
 
       <div class="cell" style="grid-row:2;grid-column:2;">
         <span class="stamp">i.</span>
@@ -1361,31 +1278,33 @@
           <div class="cbody">What most educators already work to avoid: the student fails to perform <em>and</em> fails to learn. The familiar enemy of schooling.</div>
         </div>
       </div>
-
-      <div class="matrix-axis bot-l"></div>
-      <div class="matrix-axis bot-r"></div>
     </div>
 
-    <p class="pullquote fade" style="margin-top:96px;">Generative AI produces polished symbolic outputs from minimal cognitive inputs.<span class="src">— On the unproductive-success engine</span></p>
+    <p class="pullquote fade" style="margin-top:100px;">Generative AI produces polished symbolic outputs from minimal cognitive inputs.<span class="src">— On the unproductive-success engine</span></p>
   </div>
 </section>
 
-<!-- ============ GPS VS MAP ============ -->
+<!-- ============ GPS vs MAP ============ -->
 <section id="terrain">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 06</span> A metaphor for what gets lost</div>
-    <h2 class="fade italic">Two ways of getting somewhere.<br>Only one leaves you with a map of the terrain.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 06</span>
+      <span class="pipe">/</span>
+      <span>A metaphor for what gets lost</span>
+    </div>
+    <h2 class="fade">Two ways of getting somewhere.<br><span class="ital">Only one leaves you with a map of the terrain.</span></h2>
 
     <div class="duo fade">
       <div class="left">
-        <div class="label">Topographic map · with friction</div>
+        <div class="label"><span class="dot">●</span> Topographic map · with friction</div>
         <div class="heading">Reading the map.</div>
         <div class="stage-vis map"></div>
         <p>You analyze the landscape, feel the incline of the hills, make active choices about the path.</p>
         <p>The cognitive resistance is the point. You arrive — <em>and</em> you arrive with a mental model. If the map disappears tomorrow, you can still navigate.</p>
       </div>
       <div class="right">
-        <div class="label">GPS voice · frictionless</div>
+        <div class="label"><span class="dot">●</span> GPS voice · frictionless</div>
         <div class="heading">Following the turns.</div>
         <div class="stage-vis gps"><span class="line"></span></div>
         <p>You arrive at the correct destination. You maintain no presence in the journey.</p>
@@ -1393,15 +1312,20 @@
       </div>
     </div>
 
-    <p class="small fade" style="text-align:center;margin-top:36px;color:var(--ink-mute);">Existential abstraction is the GPS condition, scaled across every domain that runs on language.</p>
+    <p class="small fade" style="text-align:center;margin-top:40px;color:var(--ink-mute);">Existential abstraction is the GPS condition, scaled across every domain that runs on language.</p>
   </div>
 </section>
 
 <!-- ============ LIVE DEMO ============ -->
 <section id="demo">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 07</span> Watch two essays write themselves</div>
-    <h2 class="fade italic">Same prompt. Same grade. Same word count.<br>Different cognitive events.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 07</span>
+      <span class="pipe">/</span>
+      <span>Watch two essays write themselves</span>
+    </div>
+    <h2 class="fade">Same prompt. Same grade. Same word count.<br><span class="ital">Different cognitive events.</span></h2>
     <p class="standfirst fade">The output, on the page, is comparable. The mechanism that produced it is not.</p>
 
     <div class="stream-wrap fade">
@@ -1424,7 +1348,7 @@
       <button class="btn" id="demo-skip">Skip to end</button>
     </div>
 
-    <p class="small fade" style="text-align:center;margin-top:40px;color:var(--ink-mute);max-width:60ch;margin-left:auto;margin-right:auto;">
+    <p class="small fade" style="text-align:center;margin-top:44px;color:var(--ink-mute);max-width:62ch;margin-left:auto;margin-right:auto;">
       Stream A is symbolic production by an algorithm; the student's contribution is the prompt. Stream B is symbolic production by a student, with all of its hesitation, deletion, and reach. The polished column will be graded the same. The cognitive event has only happened in one of them.
     </p>
   </div>
@@ -1433,13 +1357,18 @@
 <!-- ============ FRAMEWORK ============ -->
 <section id="framework">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 08</span> The Pedagogical Friction Framework</div>
-    <h2 class="fade italic">If the problem is structural, the response has to be designed.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 08</span>
+      <span class="pipe">/</span>
+      <span>The Pedagogical Friction Framework</span>
+    </div>
+    <h2 class="fade">If the problem is structural,<br><span class="ital">the response has to be designed.</span></h2>
     <p class="standfirst fade">Pedagogical friction is the intentional design of learning environments that preserve the productive cognitive resistance necessary for genuine understanding — in contexts where tools make bypassing that resistance both possible and attractive. The framework names four dimensions along which it operates.</p>
 
     <div class="friction-grid fade">
       <div class="fdim" data-dim="noetic">
-        <div class="ord">Dimension 01 — cognitive</div>
+        <div class="ord">Dimension 01 · cognitive</div>
         <h4>Noetic friction</h4>
         <div class="ko">Schema construction · accommodation</div>
         <p class="desc">The cognitive resistance encountered when a learner's existing knowledge structures prove insufficient and must be revised. Difficulty is not an obstacle to learning. It is a constitutive feature of it.</p>
@@ -1447,7 +1376,7 @@
         <div class="design"><span class="h">Design move</span>Require initial attempts before any AI interaction. Assess the visible trajectory of thinking, not only the finished product.</div>
       </div>
       <div class="fdim" data-dim="rhetorical">
-        <div class="ord">Dimension 02 — expressive</div>
+        <div class="ord">Dimension 02 · expressive</div>
         <h4>Rhetorical friction</h4>
         <div class="ko">Writing as a mode of thinking</div>
         <p class="desc">The resistance encountered in the act of communicating to others — the struggle to find the right words, anticipate objections, organize complex ideas. Writers discover what they think through the labor of trying to say it.</p>
@@ -1455,7 +1384,7 @@
         <div class="design"><span class="h">Design move</span>Assignments anchored in personal experience, situated knowledge, live dialogue, and visible revision. Make voice irreducibly human.</div>
       </div>
       <div class="fdim" data-dim="existential">
-        <div class="ord">Dimension 03 — dispositional</div>
+        <div class="ord">Dimension 03 · dispositional</div>
         <h4>Existential friction</h4>
         <div class="ko">Sitting with not-knowing</div>
         <p class="desc">The encounter with genuine uncertainty, intellectual vulnerability, the limits of one's own understanding. Curiosity, persistence, and intellectual humility are forged in repeated experiences of <em>not knowing — then coming to know</em>.</p>
@@ -1463,7 +1392,7 @@
         <div class="design"><span class="h">Design move</span>Sequences that require students to sit with ambiguity before resolution. Teachers model intellectual vulnerability as a stance, not a weakness.</div>
       </div>
       <div class="fdim" data-dim="infrastructural">
-        <div class="ord">Dimension 04 — institutional</div>
+        <div class="ord">Dimension 04 · institutional</div>
         <h4>Infrastructural friction</h4>
         <div class="ko">Policy · pacing · assessment</div>
         <p class="desc">The structures — grades, schedules, pacing guides, technology policies — that either support or undermine the preservation of productive friction. A teacher's good assignment can be hollowed out by a system that rewards frictionless output.</p>
@@ -1472,27 +1401,32 @@
       </div>
     </div>
 
-    <p class="pullquote fade" style="color:#f1ead9;border-color:var(--accent-soft);margin-top:96px;max-width:30ch;">Friction without support does not produce productive struggle. It produces aversion to challenge.<span class="src" style="color:#8a8278;">— A necessary caveat</span></p>
+    <p class="pullquote fade" style="margin-top:100px;max-width:30ch;">Friction without support does not produce productive struggle. It produces aversion to challenge.<span class="src">— A necessary caveat</span></p>
   </div>
 </section>
 
 <!-- ============ EQUITY ============ -->
 <section id="equity">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 09</span> Not all friction is the same</div>
-    <h2 class="fade italic">Productive friction drives learning.<br>Exclusionary friction blocks access to it.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 09</span>
+      <span class="pipe">/</span>
+      <span>Not all friction is the same</span>
+    </div>
+    <h2 class="fade">Productive friction drives learning.<br><span class="ital">Exclusionary friction blocks access to it.</span></h2>
     <p class="standfirst fade">Any honest framework has to distinguish the two — or it becomes a rationale for withholding tools that serve equity goals. The design challenge is to <em>reduce exclusionary barriers while preserving productive cognitive demands</em>.</p>
 
     <div class="equity-card fade">
       <h4>An English learner reading a complex text.</h4>
       <div class="equity-pair">
         <div class="row good">
-          <div class="tag">Reduces exclusionary friction</div>
+          <div class="tag">● Reduces exclusionary friction</div>
           <h5>AI translation during the reading phase</h5>
           <p>The language barrier is unrelated to the construct being assessed — historical reasoning, literary interpretation, scientific argument. The tool removes a barrier that was never the point of the assignment.</p>
         </div>
         <div class="row bad">
-          <div class="tag">Would erode productive friction</div>
+          <div class="tag">● Would erode productive friction</div>
           <h5>AI generation during the writing phase</h5>
           <p>Language production <em>is</em> the construct here. Allowing AI to compose the student's response bypasses the cognitive demand the assignment was designed to build. The tool, in this position, replaces the lesson.</p>
         </div>
@@ -1505,10 +1439,15 @@
 <!-- ============ CLOSING ============ -->
 <section id="closing">
   <div class="col-wide">
-    <div class="eyebrow fade"><span class="num">§ 10</span> Closing</div>
-    <h2 class="fade italic" style="max-width:18ch;">The question was never whether to ban it or embrace it.</h2>
+    <div class="eyebrow fade">
+      <span class="sep"></span>
+      <span class="num">§ 10</span>
+      <span class="pipe">/</span>
+      <span>Closing</span>
+    </div>
+    <h2 class="fade" style="max-width:20ch;">The question was never whether to ban it<br><span class="ital">or embrace it.</span></h2>
     <p class="standfirst fade">That framing — which has dominated public discourse since late 2022 — is a false binary that obscures the more fundamental questions:</p>
-    <p class="fade" style="font-size:30px;line-height:1.35;font-style:italic;margin:40px 0;color:var(--ink);max-width:24ch;">
+    <p class="fade" style="font-size:34px;line-height:1.35;font-style:italic;margin:44px 0;color:var(--gold);max-width:24ch;font-family:var(--serif);">
       What cognitive work must be protected, and how can institutions protect it?
     </p>
     <p class="fade">Schools that treat AI as just the latest technology to integrate into existing practice will find that the practice itself has been hollowed out. Schools that develop the conceptual and institutional infrastructure to distinguish between productive and unproductive uses of AI — between friction that serves learning and friction that impedes it — will be better positioned to fulfill their core mission in a period of substantial technological change.</p>
@@ -1517,6 +1456,13 @@
     <div class="citation fade">
       <div class="tag">Original article</div>
       <p class="cite"><strong>Miner, M. J.</strong> When the Output Looks Like Learning: Tertiary Algorithmicity, Unproductive Success, and the Case for Pedagogical Friction in K–12 Schools. <em>i.e.: Inquiry in Education,</em> Vol. 18, Iss. 1, Article 4. Published by the Center for Inquiry in Education, National-Louis University, Chicago, IL.</p>
+    </div>
+
+    <div class="hub-link fade">
+      <div class="tag">↩ Return</div>
+      <h5>Dissertation Sites Dashboard</h5>
+      <p>Continue through the route-guided dissertation web ecosystem — companions, literature review, mixed methods plan, and instrument suite.</p>
+      <a href="https://minerclass.github.io/writing-sites-hub/" target="_blank" rel="noopener" class="btn primary">Open the hub</a>
     </div>
 
     <p class="footnote fade" style="text-align:center;margin-top:80px;">end of companion · designed as a reading aid · not a substitute for the article itself</p>
@@ -1536,32 +1482,8 @@
   document.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Fade-in on intersect — with safety nets so content never stays invisible
-  const fadeEls = document.querySelectorAll('.fade');
-  // (1) Reveal anything already in viewport immediately on next frame
-  requestAnimationFrame(() => {
-    fadeEls.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
-    });
-  });
-  // (2) Observe the rest for fade-in as user scrolls
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
-  fadeEls.forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
-  // (3) Hard safety net: if anything is still hidden after 1.5s, reveal it.
-  setTimeout(() => {
-    document.querySelectorAll('.fade:not(.in)').forEach(el => el.classList.add('in'));
-  }, 1500);
-
   // Smooth scroll for nav
-  document.querySelectorAll('.topbar a').forEach(a => {
+  document.querySelectorAll('.topbar a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (id && id.startsWith('#')) {
@@ -1573,8 +1495,20 @@
       }
     });
   });
+  document.querySelectorAll('a[href^="#"]:not(.topbar a)').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id && id.startsWith('#') && id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          window.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+        }
+      }
+    });
+  });
 
-  // Scenario annotations — bidirectional hover/click
+  // Scenario annotations
   const anns = document.querySelectorAll('.ann');
   const annCards = document.querySelectorAll('.ann-card');
   function setActive(n, on) {
@@ -1590,7 +1524,7 @@
     c.addEventListener('mouseleave', () => setActive(c.dataset.ann, false));
   });
 
-  // Timeline stages — clickable to update detail
+  // Timeline stages
   const stageData = [
     {
       heading: "The first stage — speech",
@@ -1610,7 +1544,7 @@
     {
       heading: "The fourth stage — what's different",
       title: "For the first time, the medium becomes the maker.",
-      body: "In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content. This is a shift in who or what is making meaning, not merely in how meaning travels."
+      body: "In primary orality, humans produced speech. In literacy, humans produced text. In secondary orality, humans produced electronically mediated speech and text. In each prior stage the human being remained the source of symbolic content, however much the medium shaped its form. <strong>In tertiary algorithmicity, algorithmic systems share — and sometimes entirely assume — the role of generating symbolic content.</strong> This is a shift in <em>who or what</em> is making meaning, not merely in <em>how</em> meaning travels."
     }
   ];
   const detail = document.getElementById('timeline-detail');
@@ -1631,17 +1565,14 @@
     s.addEventListener('click', () => showStage(+s.dataset.stage));
     s.addEventListener('mouseenter', () => showStage(+s.dataset.stage));
   });
-  showStage(3); // start on tertiary algorithmicity
+  showStage(3);
 
-  // Demo streams — typing
+  // Demo streams
   const streamA = document.getElementById('stream-a');
   const streamB = document.getElementById('stream-b');
-  const metaA = document.getElementById('meta-a');
-  const metaB = document.getElementById('meta-b');
 
   const textA = "The French Revolution erupted in 1789 from a convergence of fiscal, social, and ideological crises. Years of war and royal extravagance had emptied the treasury, while a rigid system of estates concentrated burdens on the commoners who could least afford them. Enlightenment thought provided the vocabulary; bread shortages provided the spark. When the Estates-General met at Versailles, a constitutional revolution became a popular one, and the old regime did not survive the decade.";
 
-  // Stream B is hesitant, with crossouts and rewrites — encoded as tokens
   const tokensB = [
     {t:"So the French Revolution was caused by ", d:60},
     {t:"a lot of things. ", d:80, then:"cross", crossText:"a lot of things. ", insText:"more than one thing. "},
@@ -1671,14 +1602,12 @@
 
   function playA() {
     streamA.innerHTML = '';
-    // Stream A appears very fast — basically pasted
     let i = 0;
     function step() {
       if (i >= textA.length) {
         streamA.innerHTML = textA + '<span class="cursor"></span>';
         return;
       }
-      // Reveal in 5-9 char bursts to feel "generated"
       const burst = 5 + Math.floor(Math.random() * 6);
       i = Math.min(textA.length, i + burst);
       streamA.innerHTML = textA.slice(0, i) + '<span class="cursor"></span>';
@@ -1697,12 +1626,10 @@
         return;
       }
       const tok = tokensB[ti++];
-      // Type tok.t character-by-character
       let ci = 0;
       function typeChar() {
         if (ci >= tok.t.length) {
           if (tok.then === 'cross') {
-            // Pause then crossout
             demoTimers.push(setTimeout(() => {
               cur = cur.slice(0, cur.length - tok.crossText.length)
                   + '<span class="cross">' + tok.crossText + '</span>'
@@ -1732,7 +1659,6 @@
   function skipDemo() {
     clearDemo();
     streamA.innerHTML = textA;
-    // assemble final text of B
     let cur = '';
     tokensB.forEach(tok => {
       cur += tok.t;
@@ -1745,7 +1671,6 @@
     streamB.innerHTML = cur;
   }
 
-  // Start demo when section comes into view — with scroll fallback
   const demoSection = document.getElementById('demo');
   let demoStarted = false;
   function startDemoOnce() {
@@ -1757,7 +1682,6 @@
     entries.forEach(e => { if (e.isIntersecting) startDemoOnce(); });
   }, { threshold: 0.3 });
   demoObs.observe(demoSection);
-  // Scroll fallback in case IO doesn't fire
   window.addEventListener('scroll', () => {
     if (demoStarted) return;
     const r = demoSection.getBoundingClientRect();
@@ -1767,7 +1691,7 @@
   document.getElementById('demo-run').addEventListener('click', runDemo);
   document.getElementById('demo-skip').addEventListener('click', skipDemo);
 
-  // Tertiary algorithmicity dimension hover persistence
+  // Framework dimension hover
   document.querySelectorAll('.fdim').forEach(d => {
     d.addEventListener('mouseenter', () => {
       document.querySelectorAll('.fdim').forEach(x => x.classList.remove('active'));
@@ -1775,7 +1699,5 @@
     });
   });
 </script>
-
-
 
 </body></html>
