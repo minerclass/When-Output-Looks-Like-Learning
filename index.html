@@ -986,7 +986,13 @@
     .characteristics { grid-template-columns: 1fr; }
     .matrix-wrap { grid-template-columns: 40px 1fr; grid-template-rows: auto; }
     .matrix-axis.title-x, .matrix-spacer, .matrix-row-rule { display: none; }
-    .cell { grid-column: 2 !important; }
+    /* The four quadrant cells carry inline grid-row/grid-column from the wide
+       layout. This rule overrode the column but not the row, so all four kept
+       rows 2 and 3 and collided in overlapping pairs at this width. Reset the
+       row as well and let them auto-place into a single stacked column, and let
+       the axis label span whatever rows they occupy. */
+    .cell { grid-column: 2 !important; grid-row: auto !important; }
+    .matrix-axis.left { grid-row: 1 / -1; }
     .duo { grid-template-columns: 1fr; }
     .friction-grid { grid-template-columns: 1fr; }
     .equity-pair { grid-template-columns: 1fr; }

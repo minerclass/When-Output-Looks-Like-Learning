@@ -19,6 +19,50 @@ here, in the repository, not in a local file.
 
 ---
 
+## 2026-09-01 - Fix overlapping quadrant cells below 900px
+
+**Reported from a screenshot**, showing the four-quadrant matrix rendering as two piles of
+superimposed text: "Productive success" printed on top of "Unproductive success", and the
+two failure cells likewise.
+
+**Cause, and it is not the token adoption.** The four cells carry inline grid placement
+from the wide layout:
+
+```html
+<div class="cell" style="grid-row:2;grid-column:2;">
+<div class="cell danger" style="grid-row:2;grid-column:4;">
+```
+
+The 900px media query collapses the grid to `40px 1fr` and re-places the cells with
+`.cell { grid-column: 2 !important; }`. That overrides the inline **column** but says
+nothing about the **row**, so all four kept `grid-row: 2` and `grid-row: 3` and collided in
+pairs. The bug is width-dependent and predates this week's colour work; verified by
+measuring cell positions at three widths.
+
+**Fix.** Reset the row as well at that breakpoint and let the cells auto-place into a
+single stacked column, and let the left axis label span whatever rows they occupy:
+
+```css
+.cell { grid-column: 2 !important; grid-row: auto !important; }
+.matrix-axis.left { grid-row: 1 / -1; }
+```
+
+**Verified by measuring the rendered geometry, not by eye.**
+
+| viewport | distinct cell positions | overlapping |
+| --- | --- | --- |
+| 1440px | 4 | 0 - the 2x2 is preserved |
+| 874px | 4 | 0 |
+| 375px | 4 | 0, and no page-level horizontal scroll |
+
+**Worth carrying forward.** Inline `style="grid-row:...;grid-column:..."` on grid children
+is invisible to responsive CSS unless every property is overridden. A media query that
+re-places such children must reset **both** axes, or the cells silently stack. Worth
+grepping other repos for the same pattern before trusting their narrow layouts.
+
+
+---
+
 ## 2026-08-31 - Adopt the shared ground only, and lift two failing ink tokens
 
 **Ground adopted, surfaces deliberately not.** Mapping this page's surfaces to the shared
