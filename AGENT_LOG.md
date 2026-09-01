@@ -19,6 +19,30 @@ here, in the repository, not in a local file.
 
 ---
 
+## 2026-08-31 - Adopt the shared ground only, and lift two failing ink tokens
+
+**Ground adopted, surfaces deliberately not.** Mapping this page's surfaces to the shared
+(lighter) ones measurably broke AA: `--ink-mute`, which is used on **76 elements**, fell
+from 4.84 to **4.31**, and `--teal` fell from 4.51 to **4.02**. This page's text palette is
+tuned to darker surfaces with very little headroom. So `--bg` takes the shared ground and
+`--bg-2` and `--surface` stay local, which keeps every token passing on both.
+
+**Two pre-existing failures lifted while here.**
+
+- `--ink-dim` was `#5e5b53`: **2.74** on the ground and **2.57** on surfaces, a clear
+  barrier. Now `#8d8a7f` at 5.37 / 5.04, still the dimmest ink in the ramp.
+- `--gold-dim` was `#8e7444`: **4.19 / 3.93**, failing on both. Now `#a4884f` at 5.50 / 5.16.
+
+**Verified.** Every text token checked against all three backdrops it can sit on. Worst
+pair on the page is now **4.51** against a 4.5 threshold, and nothing fails.
+
+**Worth knowing.** An automated probe reported the same failure count before and after
+adoption, which suggested the token change was neutral here. It was not - the probe was
+mis-resolving backdrops through gradients. The regression was only visible by computing the
+layer stack directly. Do that before trusting a probe on a page with gradient grounds.
+
+---
+
 ## 2026-08-31 - Honour prefers-reduced-motion
 
 Found during an accessibility sweep across the dissertation ecosystem.

@@ -9,22 +9,35 @@
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="assets/fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="https://minerclass.github.io/tokens.css">
 <style>
   :root {
-    --bg: #0b0e14;
+    /* Ground, ink, and rules come from the shared ecosystem tokens at
+       https://minerclass.github.io/tokens.css. Each fallback is this page's
+       pre-adoption value, so a failed load changes nothing. Accents stay local. */
+    /* Ground only. The surfaces below are deliberately NOT mapped: this page's
+       text palette is tuned to darker surfaces with thin margins, and taking the
+       shared (lighter) surfaces dropped --ink-mute from 4.84 to 4.31 and --teal
+       from 4.51 to 4.02 against them, breaking AA on 76 elements. Adopting the
+       ground alone keeps every token passing on both. */
+    --bg: var(--mjm-bg, #0b0e14);
     --bg-2: #10141b;
     --surface: #161a22;
+    --mjm-accent: var(--mjm-gold, #c19a5a);
     --surface-2: #1c2129;
     --surface-hi: #232934;
     --border: #2a3038;
     --border-soft: #1d2229;
-    --ink: #ecead8;
-    --ink-soft: #c4bfae;
+    --ink: var(--mjm-ink, #ecead8);
+    --ink-soft: var(--mjm-muted, #c4bfae);
     --ink-mute: #8a877a;
-    --ink-dim: #5e5b53;
+    /* Lifted from #5e5b53 (2.74 on the ground, 2.57 on surfaces) which failed AA
+       badly. Now 5.37 and 5.04, still the dimmest ink in the ramp. */
+    --ink-dim: #8d8a7f;
     --gold: #c19a5a;
     --gold-soft: #d6b885;
-    --gold-dim: #8e7444;
+    /* Lifted from #8e7444 (4.19 / 3.93), which failed AA on both. Now 5.50 / 5.16. */
+    --gold-dim: #a4884f;
     --teal: #5e8a82;
     --teal-soft: #82a8a0;
     --rust: #b06b47;
